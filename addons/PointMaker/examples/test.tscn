@@ -1,0 +1,190 @@
+[gd_scene load_steps=10 format=3 uid="uid://dubi4n7p70ucy"]
+
+[ext_resource type="Texture2D" uid="uid://cy4eg484bmaus" path="res://addons/PointMaker/icon.png" id="1_t5df4"]
+[ext_resource type="Script" uid="uid://dfnr5b22gpy7h" path="res://addons/PointMaker/point_trigger.gd" id="2_rkxvf"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_uehi2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mysju"]
+size = Vector2(348.5, 458.5)
+
+[sub_resource type="Animation" id="Animation_mql70"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(296, 300)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Icon/PointTrigger-right:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Icon/PointTrigger-left:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_mysju"]
+resource_name = "go-left"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(830, 300), Vector2(296, 300)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Icon/PointTrigger-right:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Icon/PointTrigger-left:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_uehi2"]
+resource_name = "go-right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(296, 300), Vector2(830, 300)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Icon/PointTrigger-right:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Icon/PointTrigger-left:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mysju"]
+_data = {
+&"RESET": SubResource("Animation_mql70"),
+&"go-left": SubResource("Animation_mysju"),
+&"go-right": SubResource("Animation_uehi2")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uehi2"]
+size = Vector2(352, 46)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Icon" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_uehi2")
+position = Vector2(296, 300)
+texture = ExtResource("1_t5df4")
+
+[node name="PointTrigger-right" type="Area2D" parent="Icon"]
+position = Vector2(-296, -300)
+script = ExtResource("2_rkxvf")
+animation_player_path = NodePath("../../AnimationPlayer")
+animation_name = "go-right"
+trigger_once = false
+metadata/_custom_type_script = "uid://dfnr5b22gpy7h"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon/PointTrigger-right"]
+position = Vector2(306.75, 301.75)
+shape = SubResource("RectangleShape2D_mysju")
+
+[node name="PointTrigger-left" type="Area2D" parent="Icon"]
+position = Vector2(-296, -300)
+script = ExtResource("2_rkxvf")
+animation_player_path = NodePath("../../AnimationPlayer")
+animation_name = "go-left"
+trigger_once = false
+metadata/_custom_type_script = "uid://dfnr5b22gpy7h"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon/PointTrigger-left"]
+position = Vector2(306.75, 301.75)
+shape = SubResource("RectangleShape2D_mysju")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_mysju")
+}
+
+[node name="Label" type="Label" parent="."]
+offset_left = 496.0
+offset_top = 576.0
+offset_right = 690.0
+offset_bottom = 626.0
+theme_override_font_sizes/font_size = 36
+text = "Next Scene"
+
+[node name="PointTrigger-Scene" type="Area2D" parent="Label"]
+position = Vector2(-496, -576)
+script = ExtResource("2_rkxvf")
+scene_to_load = "res://examples/test2.tscn"
+metadata/_custom_type_script = "uid://dfnr5b22gpy7h"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Label/PointTrigger-Scene"]
+position = Vector2(598, 598)
+shape = SubResource("RectangleShape2D_uehi2")

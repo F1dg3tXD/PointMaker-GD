@@ -11,12 +11,30 @@ config_version=5
 [application]
 
 config/name="PointMaker-GD"
+run/main_scene="uid://dubi4n7p70ucy"
 config/features=PackedStringArray("4.4")
-config/icon="res://icon.svg"
+config/icon="uid://bccaowyqwkeuk"
+
+[display]
+
+window/stretch/mode="viewport"
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/PointMaker/plugin.cfg")
+
+[input]
+
+click0={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(130, 22),"global_position":Vector2(139, 70),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+click1={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":2,"position":Vector2(218, 8),"global_position":Vector2(227, 56),"factor":1.0,"button_index":2,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
 
 [rendering]
 

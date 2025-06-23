@@ -1,0 +1,110 @@
+[gd_scene load_steps=9 format=3 uid="uid://b2jh5srpbtxlt"]
+
+[ext_resource type="Script" uid="uid://dfnr5b22gpy7h" path="res://addons/PointMaker/point_trigger.gd" id="1_y5tfu"]
+[ext_resource type="Texture2D" uid="uid://cy4eg484bmaus" path="res://addons/PointMaker/icon.png" id="2_k25ba"]
+[ext_resource type="Script" uid="uid://cpy2w2a2v2fs8" path="res://addons/PointMaker/FadeSprite.gd" id="3_yrjw7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ji76j"]
+size = Vector2(303, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qou4l"]
+size = Vector2(344, 460)
+
+[sub_resource type="Animation" id="Animation_k25ba"]
+resource_name = "fader"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon/Icon:fade_opacity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_yrjw7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon/Icon:fade_opacity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8vrcw"]
+_data = {
+&"RESET": SubResource("Animation_yrjw7"),
+&"fader": SubResource("Animation_k25ba")
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 326.0
+offset_top = 233.0
+offset_right = 817.0
+offset_bottom = 373.0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 481.0
+offset_bottom = 138.0
+theme_override_font_sizes/font_size = 101
+text = "Scene 2 ig"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 496.0
+offset_top = 576.0
+offset_right = 690.0
+offset_bottom = 626.0
+theme_override_font_sizes/font_size = 36
+text = "Previous Scene"
+
+[node name="PointTrigger-Scene" type="Area2D" parent="Label"]
+position = Vector2(-496, -576)
+script = ExtResource("1_y5tfu")
+scene_to_load = "res://examples/test.tscn"
+metadata/_custom_type_script = "uid://dfnr5b22gpy7h"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Label/PointTrigger-Scene"]
+position = Vector2(622.5, 598)
+shape = SubResource("RectangleShape2D_ji76j")
+
+[node name="Icon" type="Node2D" parent="."]
+position = Vector2(405, -6)
+
+[node name="Icon" type="Sprite2D" parent="Icon"]
+position = Vector2(553, 306)
+texture = ExtResource("2_k25ba")
+script = ExtResource("3_yrjw7")
+is_playing = false
+is_looping = false
+fade_opacity = 1.0
+
+[node name="PointTrigger" type="Area2D" parent="Icon/Icon"]
+position = Vector2(-27, -82)
+script = ExtResource("1_y5tfu")
+animation_player_path = NodePath("../../../AnimationPlayer")
+animation_name = "fader"
+trigger_once = false
+metadata/_custom_type_script = "uid://dfnr5b22gpy7h"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon/Icon/PointTrigger"]
+position = Vector2(38, 82)
+shape = SubResource("RectangleShape2D_qou4l")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8vrcw")
+}

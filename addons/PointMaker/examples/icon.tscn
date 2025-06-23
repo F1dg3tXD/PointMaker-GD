@@ -1,0 +1,70 @@
+[gd_scene load_steps=8 format=3 uid="uid://umab28j1ajeo"]
+
+[ext_resource type="Texture2D" uid="uid://cy4eg484bmaus" path="res://addons/PointMaker/icon.png" id="1_454wx"]
+[ext_resource type="Script" uid="uid://cpy2w2a2v2fs8" path="res://addons/PointMaker/FadeSprite.gd" id="2_ewekt"]
+[ext_resource type="Script" uid="uid://dfnr5b22gpy7h" path="res://addons/PointMaker/point_trigger.gd" id="3_qou4l"]
+
+[sub_resource type="Animation" id="Animation_ewekt"]
+resource_name = "fader"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:fade_opacity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_qou4l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:fade_opacity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u20em"]
+_data = {
+&"RESET": SubResource("Animation_qou4l"),
+&"fader": SubResource("Animation_ewekt")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qou4l"]
+size = Vector2(344, 460)
+
+[node name="Icon" type="Node2D"]
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(553, 306)
+texture = ExtResource("1_454wx")
+script = ExtResource("2_ewekt")
+is_playing = false
+is_looping = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Icon"]
+libraries = {
+&"": SubResource("AnimationLibrary_u20em")
+}
+
+[node name="PointTrigger" type="Area2D" parent="."]
+position = Vector2(526, 224)
+script = ExtResource("3_qou4l")
+animation_player_path = NodePath("../Icon/AnimationPlayer")
+animation_name = "fader"
+trigger_once = false
+metadata/_custom_type_script = "uid://dfnr5b22gpy7h"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PointTrigger"]
+position = Vector2(38, 82)
+shape = SubResource("RectangleShape2D_qou4l")
