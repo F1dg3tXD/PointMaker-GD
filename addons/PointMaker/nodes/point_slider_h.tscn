@@ -4,3 +4,4 @@
 
 [node name="pointSliderH" type="Area2D"]
 script = ExtResource("1_hok2a")
+path2d_path = null

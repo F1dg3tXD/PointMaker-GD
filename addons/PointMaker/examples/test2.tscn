@@ -1,8 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://b2jh5srpbtxlt"]
+[gd_scene load_steps=18 format=3 uid="uid://b2jh5srpbtxlt"]
 
 [ext_resource type="Script" uid="uid://dfnr5b22gpy7h" path="res://addons/PointMaker/scripts/point_trigger.gd" id="1_y5tfu"]
 [ext_resource type="Texture2D" uid="uid://cy4eg484bmaus" path="res://addons/PointMaker/icon.png" id="2_k25ba"]
+[ext_resource type="Script" uid="uid://ddf7lqisije6p" path="res://addons/PointMaker/scripts/point_hover.gd" id="2_mkksx"]
 [ext_resource type="Script" uid="uid://cpy2w2a2v2fs8" path="res://addons/PointMaker/scripts/FadeSprite.gd" id="3_yrjw7"]
+[ext_resource type="Script" uid="uid://dm4jti3mg11hy" path="res://addons/PointMaker/scripts/point_radial.gd" id="5_o87qf"]
+[ext_resource type="Script" uid="uid://cmcairkocckkw" path="res://addons/PointMaker/scripts/point_slider_h.gd" id="6_j2fxb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ji76j"]
 size = Vector2(303, 46)
@@ -24,6 +27,50 @@ tracks/0/keys = {
 "update": 0,
 "values": [1.0]
 }
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:theme_override_colors/font_color:r")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:theme_override_colors/font_color:g")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label:theme_override_colors/font_color:b")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Label:theme_override_colors/font_color:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_k25ba"]
 resource_name = "fader"
@@ -40,46 +87,119 @@ tracks/0/keys = {
 "values": [1.0, 0.0, 1.0]
 }
 
+[sub_resource type="Animation" id="Animation_o87qf"]
+resource_name = "textColor"
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:theme_override_colors/font_color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:theme_override_colors/font_color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.0784314, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:theme_override_colors/font_color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label:theme_override_colors/font_color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8vrcw"]
 _data = {
 &"RESET": SubResource("Animation_yrjw7"),
-&"fader": SubResource("Animation_k25ba")
+&"fader": SubResource("Animation_k25ba"),
+&"textColor": SubResource("Animation_o87qf")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j2fxb"]
+size = Vector2(100, 100)
+
+[sub_resource type="Curve2D" id="Curve2D_j2fxb"]
+_data = {
+"points": PackedVector2Array(-42.329, 49.247, 0, 0, -230, 0, 0, 0, 0, 0, -2, 1)
+}
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_j2fxb"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_25gc7"]
+gradient = SubResource("Gradient_j2fxb")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_25gc7"]
+size = Vector2(280, 78.45)
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 326.0
-offset_top = 233.0
-offset_right = 817.0
-offset_bottom = 373.0
+offset_left = 49.0
+offset_top = 13.0
+offset_right = 540.0
+offset_bottom = 153.0
 
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 0
 offset_right = 481.0
 offset_bottom = 138.0
 theme_override_font_sizes/font_size = 101
-text = "Scene 2 ig"
+text = "Sliders"
 
 [node name="Label" type="Label" parent="."]
 offset_left = 496.0
 offset_top = 576.0
 offset_right = 690.0
 offset_bottom = 626.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 36
 text = "Previous Scene"
 
 [node name="PointTrigger-Scene" type="Area2D" parent="Label"]
 position = Vector2(-496, -576)
 script = ExtResource("1_y5tfu")
-scene_to_load = "res://examples/test.tscn"
+scene_to_load = "res://addons/PointMaker/examples/test.tscn"
 metadata/_custom_type_script = "uid://dfnr5b22gpy7h"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Label/PointTrigger-Scene"]
 position = Vector2(622.5, 598)
 shape = SubResource("RectangleShape2D_ji76j")
+
+[node name="PointHover" type="Area2D" parent="Label/PointTrigger-Scene"]
+script = ExtResource("2_mkksx")
+stop_animation_on_exit = true
+animation_player_path = NodePath("../../../AnimationPlayer")
+metadata/_custom_type_script = "uid://ddf7lqisije6p"
 
 [node name="Icon" type="Node2D" parent="."]
 position = Vector2(405, -6)
@@ -108,3 +228,89 @@ shape = SubResource("RectangleShape2D_qou4l")
 libraries = {
 &"": SubResource("AnimationLibrary_8vrcw")
 }
+
+[node name="PointRadial" type="Area2D" parent="."]
+position = Vector2(100, 214)
+script = ExtResource("5_o87qf")
+knob_path = NodePath("Sprite2D")
+metadata/_custom_type_script = "uid://dm4jti3mg11hy"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PointRadial"]
+shape = SubResource("RectangleShape2D_j2fxb")
+
+[node name="Sprite2D" type="Sprite2D" parent="PointRadial"]
+scale = Vector2(0.21, 0.21)
+texture = ExtResource("2_k25ba")
+
+[node name="PointSliderH-Smooth" type="Area2D" parent="."]
+position = Vector2(300, 312)
+script = ExtResource("6_j2fxb")
+handle_path = NodePath("Sprite2D")
+path2d_path = NodePath("Path2D")
+metadata/_custom_type_script = "uid://cmcairkocckkw"
+
+[node name="Path2D" type="Path2D" parent="PointSliderH-Smooth"]
+curve = SubResource("Curve2D_j2fxb")
+
+[node name="Background" type="Sprite2D" parent="PointSliderH-Smooth/Path2D"]
+position = Vector2(-110, 0.5)
+scale = Vector2(4.3125, 1.23438)
+texture = SubResource("GradientTexture2D_25gc7")
+
+[node name="Sprite2D" type="Sprite2D" parent="PointSliderH-Smooth"]
+scale = Vector2(0.17, 0.17)
+texture = ExtResource("2_k25ba")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PointSliderH-Smooth"]
+position = Vector2(-110, 0)
+shape = SubResource("RectangleShape2D_25gc7")
+
+[node name="PointSliderH-Step_1" type="Area2D" parent="."]
+position = Vector2(300, 404)
+script = ExtResource("6_j2fxb")
+handle_path = NodePath("Sprite2D")
+path2d_path = NodePath("Path2D")
+step = 0.1
+metadata/_custom_type_script = "uid://cmcairkocckkw"
+
+[node name="Path2D" type="Path2D" parent="PointSliderH-Step_1"]
+curve = SubResource("Curve2D_j2fxb")
+
+[node name="Background" type="Sprite2D" parent="PointSliderH-Step_1/Path2D"]
+position = Vector2(-110, 0.5)
+scale = Vector2(4.3125, 1.23438)
+texture = SubResource("GradientTexture2D_25gc7")
+
+[node name="Sprite2D" type="Sprite2D" parent="PointSliderH-Step_1"]
+position = Vector2(-116, 0.5)
+scale = Vector2(0.17, 0.17)
+texture = ExtResource("2_k25ba")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PointSliderH-Step_1"]
+position = Vector2(-110, 0)
+shape = SubResource("RectangleShape2D_25gc7")
+
+[node name="PointSliderH-Step_5" type="Area2D" parent="."]
+position = Vector2(300, 496)
+script = ExtResource("6_j2fxb")
+handle_path = NodePath("Sprite2D")
+path2d_path = NodePath("Path2D")
+step = 0.5
+metadata/_custom_type_script = "uid://cmcairkocckkw"
+
+[node name="Path2D" type="Path2D" parent="PointSliderH-Step_5"]
+curve = SubResource("Curve2D_j2fxb")
+
+[node name="Background" type="Sprite2D" parent="PointSliderH-Step_5/Path2D"]
+position = Vector2(-110, 0.5)
+scale = Vector2(4.3125, 1.23438)
+texture = SubResource("GradientTexture2D_25gc7")
+
+[node name="Sprite2D" type="Sprite2D" parent="PointSliderH-Step_5"]
+position = Vector2(-116, 0.5)
+scale = Vector2(0.17, 0.17)
+texture = ExtResource("2_k25ba")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PointSliderH-Step_5"]
+position = Vector2(-110, 0)
+shape = SubResource("RectangleShape2D_25gc7")

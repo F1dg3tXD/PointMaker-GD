@@ -4,4 +4,3 @@
 
 [node name="pointRadial" type="Area2D"]
 script = ExtResource("1_cxbr6")
-step = null

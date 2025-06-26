@@ -6,8 +6,7 @@ signal value_changed(value: float)
 signal value_set(value: float)
 
 @export var handle_path: NodePath
-@export var min_position: float = 0.0
-@export var max_position: float = 200.0
+@export var path2d_path: NodePath
 @export_range(0.0, 1.0) var value: float = 0.5
 @export var step: float = 0.0
 
@@ -15,11 +14,15 @@ var _dragging := false
 
 func _ready():
 	input_pickable = true
-	value = _apply_step(clamp(value, 0.0, 1.0))
-	_update_handle_position()
 
 	if not has_node("CollisionShape2D") and not has_node("CollisionPolygon2D"):
 		push_warning("⚠ PointSliderH requires a CollisionShape2D or CollisionPolygon2D to detect mouse interaction.")
+
+	# Wait a frame so children are ready
+	await get_tree().process_frame
+
+	value = _apply_step(clamp(value, 0.0, 1.0))
+	_update_handle_position()
 
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
@@ -33,10 +36,19 @@ func _input_event(viewport, event, shape_idx):
 
 func _unhandled_input(event):
 	if _dragging and event is InputEventMouseMotion:
-		var global_mouse_pos = get_global_mouse_position()
-		var local_x = to_local(global_mouse_pos).x
-		var range = max_position - min_position
-		var raw_val = (local_x - min_position) / range
+		var path_node := get_node_or_null(path2d_path)
+		if not path_node:
+			return
+
+		var curve: Curve2D = path_node.curve
+		if not curve:
+			return
+
+		var local_pos: Vector2 = path_node.to_local(get_global_mouse_position())
+		var offset: float = curve.get_closest_offset(local_pos)
+		var total: float = curve.get_baked_length()
+		var raw_val: float = offset / total
+
 		var new_val = _apply_step(clamp(raw_val, 0.0, 1.0))
 
 		if not is_equal_approx(new_val, value):
@@ -49,6 +61,13 @@ func _apply_step(v: float) -> float:
 
 func _update_handle_position():
 	var handle = get_node_or_null(handle_path)
-	if handle:
-		var x = lerp(min_position, max_position, value)
-		handle.position.x = x
+	var path_node = get_node_or_null(path2d_path)
+	if not handle or not path_node:
+		return
+
+	var curve: Curve2D = path_node.curve
+	if not curve:
+		return
+
+	var offset: float = value * curve.get_baked_length()
+	handle.position = curve.sample_baked(offset)

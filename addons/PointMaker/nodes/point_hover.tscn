@@ -4,3 +4,4 @@
 
 [node name="PointHover" type="Area2D"]
 script = ExtResource("1_m124m")
+stop_animation_on_exit = null

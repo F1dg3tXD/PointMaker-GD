@@ -7,6 +7,7 @@ signal hover_triggered
 signal hover_ended
 
 @export var use_own_collision: bool = false
+@export var stop_animation_on_exit: bool = false
 @export var sounds: Array[AudioStream] = []
 @export var animation_player_path: NodePath
 @export var animation_name: String = ""
@@ -43,6 +44,8 @@ func _on_mouse_exited():
 	if hovered:
 		hovered = false
 		emit_signal("hover_ended")
+		if stop_animation_on_exit:
+			_stop_animation()
 
 func _trigger_events():
 	# Play sounds
@@ -60,3 +63,9 @@ func _trigger_events():
 
 	# Notify listeners
 	emit_signal("hover_triggered")
+
+func _stop_animation():
+	if animation_player_path != NodePath("") and animation_name != "":
+		var anim_player = get_node_or_null(animation_player_path)
+		if anim_player and anim_player.is_playing():
+			anim_player.stop()
