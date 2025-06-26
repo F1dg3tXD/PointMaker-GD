@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bu61qgc2m5ib"
-path="res://.godot/imported/pointTrigger.png-0bb3d753df6826b1d7db059765d6661d.ctex"
+uid="uid://lqsv17jt0rmq"
+path="res://.godot/imported/poindSliderH.png-292748a2537c2bef11162435bad9aeb1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/PointMaker/pointTrigger.png"
-dest_files=["res://.godot/imported/pointTrigger.png-0bb3d753df6826b1d7db059765d6661d.ctex"]
+source_file="res://addons/PointMaker/icons/poindSliderH.png"
+dest_files=["res://.godot/imported/poindSliderH.png-292748a2537c2bef11162435bad9aeb1.ctex"]
 
 [params]
 

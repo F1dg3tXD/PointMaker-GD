@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://dubi4n7p70ucy"]
 
 [ext_resource type="Texture2D" uid="uid://cy4eg484bmaus" path="res://addons/PointMaker/icon.png" id="1_t5df4"]
-[ext_resource type="Script" uid="uid://dfnr5b22gpy7h" path="res://addons/PointMaker/point_trigger.gd" id="2_rkxvf"]
+[ext_resource type="Script" uid="uid://dfnr5b22gpy7h" path="res://addons/PointMaker/scripts/point_trigger.gd" id="2_rkxvf"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_uehi2"]
 

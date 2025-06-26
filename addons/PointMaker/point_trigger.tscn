@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4ef4i6sgd1c3"]
-
-[ext_resource type="Script" uid="uid://dfnr5b22gpy7h" path="res://addons/PointMaker/point_trigger.gd" id="1_1uq5g"]
-
-[node name="PointTrigger" type="Area2D"]
-script = ExtResource("1_1uq5g")

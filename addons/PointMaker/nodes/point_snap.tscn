@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0gfdyuwxugl4"]
+
+[ext_resource type="Script" uid="uid://bb2a6x8xeewb1" path="res://addons/PointMaker/scripts/point_snap.gd" id="1_xywf5"]
+
+[node name="pointSnap" type="Node2D"]
+script = ExtResource("1_xywf5")
