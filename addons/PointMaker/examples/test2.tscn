@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b2jh5srpbtxlt"]
+[gd_scene load_steps=40 format=3 uid="uid://b2jh5srpbtxlt"]
 
 [ext_resource type="Script" uid="uid://dfnr5b22gpy7h" path="res://addons/PointMaker/scripts/point_trigger.gd" id="1_y5tfu"]
 [ext_resource type="Texture2D" uid="uid://cy4eg484bmaus" path="res://addons/PointMaker/icon.png" id="2_k25ba"]
@@ -6,8 +6,24 @@
 [ext_resource type="Script" uid="uid://cpy2w2a2v2fs8" path="res://addons/PointMaker/scripts/FadeSprite.gd" id="3_yrjw7"]
 [ext_resource type="Script" uid="uid://dm4jti3mg11hy" path="res://addons/PointMaker/scripts/point_radial.gd" id="5_o87qf"]
 [ext_resource type="Script" uid="uid://cmcairkocckkw" path="res://addons/PointMaker/scripts/point_slider_h.gd" id="6_j2fxb"]
+[ext_resource type="Script" uid="uid://c0nbfxt2wfbkx" path="res://addons/PointMaker/scripts/point_slider_v.gd" id="7_25gc7"]
+[ext_resource type="Script" uid="uid://bbkgyol1fyypt" path="res://addons/PointMaker/scripts/point_drag.gd" id="8_2sdst"]
+[ext_resource type="Script" uid="uid://bb2a6x8xeewb1" path="res://addons/PointMaker/scripts/point_snap.gd" id="9_d460w"]
+[ext_resource type="AudioStream" uid="uid://lfjwo5y6cb5u" path="res://addons/PointMaker/assets/correct.wav" id="10_d6c5p"]
+[ext_resource type="Texture2D" uid="uid://dst43newpkwvj" path="res://addons/PointMaker/assets/red arrow.png" id="10_l8rvp"]
+[ext_resource type="AudioStream" uid="uid://b58gdh44q6rki" path="res://addons/PointMaker/assets/wrong.wav" id="11_2k7cx"]
+[ext_resource type="AudioStream" uid="uid://jyvlmsob3p78" path="res://addons/PointMaker/assets/out.wav" id="12_ka6na"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ji76j"]
+size = Vector2(303, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d6c5p"]
+size = Vector2(303, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2k7cx"]
+size = Vector2(303, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ka6na"]
 size = Vector2(303, 46)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qou4l"]
@@ -70,6 +86,144 @@ tracks/4/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PointDrag-correct/Sprite2D:modulate:r")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PointDrag-correct/Sprite2D:modulate:g")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("PointDrag-correct/Sprite2D:modulate:b")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("PointDrag-correct/Sprite2D:modulate:a")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_d460w"]
+resource_name = "dragIn"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointDrag-correct/Sprite2D:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointDrag-correct/Sprite2D:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PointDrag-correct/Sprite2D:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.0166667, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PointDrag-correct/Sprite2D:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_l8rvp"]
+resource_name = "dragOut"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointDrag-correct/Sprite2D:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.183333, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointDrag-correct/Sprite2D:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PointDrag-correct/Sprite2D:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PointDrag-correct/Sprite2D:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
 }
 
 [sub_resource type="Animation" id="Animation_k25ba"]
@@ -138,6 +292,8 @@ tracks/3/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8vrcw"]
 _data = {
 &"RESET": SubResource("Animation_yrjw7"),
+&"dragIn": SubResource("Animation_d460w"),
+&"dragOut": SubResource("Animation_l8rvp"),
 &"fader": SubResource("Animation_k25ba"),
 &"textColor": SubResource("Animation_o87qf")
 }
@@ -147,7 +303,7 @@ size = Vector2(100, 100)
 
 [sub_resource type="Curve2D" id="Curve2D_j2fxb"]
 _data = {
-"points": PackedVector2Array(-42.329, 49.247, 0, 0, -230, 0, 0, 0, 0, 0, -2, 1)
+"points": PackedVector2Array(-42.329, 49.247, 0, 0, -230, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 2
 
@@ -158,6 +314,41 @@ gradient = SubResource("Gradient_j2fxb")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_25gc7"]
 size = Vector2(280, 78.45)
+
+[sub_resource type="Curve2D" id="Curve2D_2sdst"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -180, 0, 0, 0, 0, 0, 0)
+}
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_d460w"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_l8rvp"]
+gradient = SubResource("Gradient_d460w")
+width = 50
+height = 200
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rjlui"]
+size = Vector2(48, 198.5)
+
+[sub_resource type="Gradient" id="Gradient_l8rvp"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rjlui"]
+gradient = SubResource("Gradient_l8rvp")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l8rvp"]
+size = Vector2(26, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2sdst"]
+size = Vector2(100, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d460w"]
+size = Vector2(1500, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_unm53"]
+size = Vector2(500, 10)
 
 [node name="Node2D" type="Node2D"]
 
@@ -171,10 +362,27 @@ offset_bottom = 153.0
 
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 0
-offset_right = 481.0
-offset_bottom = 138.0
-theme_override_font_sizes/font_size = 101
-text = "Sliders"
+offset_left = -2.0
+offset_top = -11.0
+offset_right = 326.0
+offset_bottom = 118.0
+theme_override_font_sizes/font_size = 45
+text = "Knobs, Sliders, 
+and Snapping"
+
+[node name="RedArrow" type="Sprite2D" parent="."]
+position = Vector2(671, 308)
+rotation = -1.69646
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_l8rvp")
+
+[node name="Label" type="Label" parent="RedArrow"]
+offset_left = -464.0
+offset_top = -224.0
+offset_right = 160.0
+offset_bottom = 146.0
+theme_override_font_sizes/font_size = 271
+text = "Drag"
 
 [node name="Label" type="Label" parent="."]
 offset_left = 496.0
@@ -199,10 +407,23 @@ shape = SubResource("RectangleShape2D_ji76j")
 script = ExtResource("2_mkksx")
 stop_animation_on_exit = true
 animation_player_path = NodePath("../../../AnimationPlayer")
+animation_name = "textColor"
 metadata/_custom_type_script = "uid://ddf7lqisije6p"
 
+[node name="@CollisionShape2D@21761" type="CollisionShape2D" parent="Label/PointTrigger-Scene/PointHover"]
+position = Vector2(622.5, 598)
+shape = SubResource("RectangleShape2D_d6c5p")
+
+[node name="@CollisionShape2D@21762" type="CollisionShape2D" parent="Label/PointTrigger-Scene/PointHover"]
+position = Vector2(622.5, 598)
+shape = SubResource("RectangleShape2D_2k7cx")
+
+[node name="@CollisionShape2D@21762" type="CollisionShape2D" parent="Label/PointTrigger-Scene/PointHover"]
+position = Vector2(622.5, 598)
+shape = SubResource("RectangleShape2D_ka6na")
+
 [node name="Icon" type="Node2D" parent="."]
-position = Vector2(405, -6)
+position = Vector2(380, -12)
 
 [node name="Icon" type="Sprite2D" parent="Icon"]
 position = Vector2(553, 306)
@@ -229,16 +450,44 @@ libraries = {
 &"": SubResource("AnimationLibrary_8vrcw")
 }
 
-[node name="PointRadial" type="Area2D" parent="."]
-position = Vector2(100, 214)
+[node name="PointRadial-Smooth" type="Area2D" parent="."]
+position = Vector2(98, 196)
 script = ExtResource("5_o87qf")
 knob_path = NodePath("Sprite2D")
 metadata/_custom_type_script = "uid://dm4jti3mg11hy"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PointRadial"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PointRadial-Smooth"]
 shape = SubResource("RectangleShape2D_j2fxb")
 
-[node name="Sprite2D" type="Sprite2D" parent="PointRadial"]
+[node name="Sprite2D" type="Sprite2D" parent="PointRadial-Smooth"]
+scale = Vector2(0.21, 0.21)
+texture = ExtResource("2_k25ba")
+
+[node name="PointRadial-Step_1" type="Area2D" parent="."]
+position = Vector2(213, 196)
+script = ExtResource("5_o87qf")
+knob_path = NodePath("Sprite2D")
+step = 0.1
+metadata/_custom_type_script = "uid://dm4jti3mg11hy"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PointRadial-Step_1"]
+shape = SubResource("RectangleShape2D_j2fxb")
+
+[node name="Sprite2D" type="Sprite2D" parent="PointRadial-Step_1"]
+scale = Vector2(0.21, 0.21)
+texture = ExtResource("2_k25ba")
+
+[node name="PointRadial-Step_5" type="Area2D" parent="."]
+position = Vector2(328, 196)
+script = ExtResource("5_o87qf")
+knob_path = NodePath("Sprite2D")
+step = 0.5
+metadata/_custom_type_script = "uid://dm4jti3mg11hy"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PointRadial-Step_5"]
+shape = SubResource("RectangleShape2D_j2fxb")
+
+[node name="Sprite2D" type="Sprite2D" parent="PointRadial-Step_5"]
 scale = Vector2(0.21, 0.21)
 texture = ExtResource("2_k25ba")
 
@@ -258,6 +507,7 @@ scale = Vector2(4.3125, 1.23438)
 texture = SubResource("GradientTexture2D_25gc7")
 
 [node name="Sprite2D" type="Sprite2D" parent="PointSliderH-Smooth"]
+position = Vector2(-115, 0)
 scale = Vector2(0.17, 0.17)
 texture = ExtResource("2_k25ba")
 
@@ -282,7 +532,7 @@ scale = Vector2(4.3125, 1.23438)
 texture = SubResource("GradientTexture2D_25gc7")
 
 [node name="Sprite2D" type="Sprite2D" parent="PointSliderH-Step_1"]
-position = Vector2(-116, 0.5)
+position = Vector2(-115, 0)
 scale = Vector2(0.17, 0.17)
 texture = ExtResource("2_k25ba")
 
@@ -307,10 +557,184 @@ scale = Vector2(4.3125, 1.23438)
 texture = SubResource("GradientTexture2D_25gc7")
 
 [node name="Sprite2D" type="Sprite2D" parent="PointSliderH-Step_5"]
-position = Vector2(-116, 0.5)
+position = Vector2(-115, 0)
 scale = Vector2(0.17, 0.17)
 texture = ExtResource("2_k25ba")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PointSliderH-Step_5"]
 position = Vector2(-110, 0)
 shape = SubResource("RectangleShape2D_25gc7")
+
+[node name="PointSliderV-Smooth" type="Area2D" parent="."]
+position = Vector2(409, 437)
+script = ExtResource("7_25gc7")
+handle_path = NodePath("Sprite2D")
+path2d_path = NodePath("Path2D")
+metadata/_custom_type_script = "uid://c0nbfxt2wfbkx"
+
+[node name="Path2D" type="Path2D" parent="PointSliderV-Smooth"]
+position = Vector2(0, 26)
+curve = SubResource("Curve2D_2sdst")
+
+[node name="BG" type="Sprite2D" parent="PointSliderV-Smooth/Path2D"]
+position = Vector2(0, -91)
+texture = SubResource("GradientTexture2D_l8rvp")
+
+[node name="Sprite2D" type="Sprite2D" parent="PointSliderV-Smooth"]
+position = Vector2(0, -64)
+scale = Vector2(0.135, 0.135)
+texture = ExtResource("2_k25ba")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PointSliderV-Smooth"]
+position = Vector2(0, -64.75)
+shape = SubResource("RectangleShape2D_rjlui")
+
+[node name="PointSliderV-Step_1" type="Area2D" parent="."]
+position = Vector2(469, 437)
+script = ExtResource("7_25gc7")
+handle_path = NodePath("Sprite2D")
+path2d_path = NodePath("Path2D")
+step = 0.1
+metadata/_custom_type_script = "uid://c0nbfxt2wfbkx"
+
+[node name="Path2D" type="Path2D" parent="PointSliderV-Step_1"]
+position = Vector2(0, 26)
+curve = SubResource("Curve2D_2sdst")
+
+[node name="BG" type="Sprite2D" parent="PointSliderV-Step_1/Path2D"]
+position = Vector2(0, -91)
+texture = SubResource("GradientTexture2D_l8rvp")
+
+[node name="Sprite2D" type="Sprite2D" parent="PointSliderV-Step_1"]
+position = Vector2(0, -64)
+scale = Vector2(0.135, 0.135)
+texture = ExtResource("2_k25ba")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PointSliderV-Step_1"]
+position = Vector2(0, -64.75)
+shape = SubResource("RectangleShape2D_rjlui")
+
+[node name="PointSliderV3-Step_5" type="Area2D" parent="."]
+position = Vector2(527, 437)
+script = ExtResource("7_25gc7")
+handle_path = NodePath("Sprite2D")
+path2d_path = NodePath("Path2D")
+step = 0.5
+metadata/_custom_type_script = "uid://c0nbfxt2wfbkx"
+
+[node name="Path2D" type="Path2D" parent="PointSliderV3-Step_5"]
+position = Vector2(0, 26)
+curve = SubResource("Curve2D_2sdst")
+
+[node name="BG" type="Sprite2D" parent="PointSliderV3-Step_5/Path2D"]
+position = Vector2(0, -91)
+texture = SubResource("GradientTexture2D_l8rvp")
+
+[node name="Sprite2D" type="Sprite2D" parent="PointSliderV3-Step_5"]
+position = Vector2(0, -64)
+scale = Vector2(0.135, 0.135)
+texture = ExtResource("2_k25ba")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PointSliderV3-Step_5"]
+position = Vector2(0, -64.75)
+shape = SubResource("RectangleShape2D_rjlui")
+
+[node name="PointSnap" type="Area2D" parent="."]
+position = Vector2(640, 129)
+collision_layer = 3
+collision_mask = 3
+input_pickable = false
+script = ExtResource("9_d460w")
+accepted_dragger = NodePath("../PointDrag-correct")
+allow_any_dragger = false
+animation_player_path = NodePath("../AnimationPlayer")
+snap_in_animation = "dragIn"
+snap_out_animation = "dragOut"
+correct_snap_sound = ExtResource("10_d6c5p")
+wrong_snap_sound = ExtResource("11_2k7cx")
+unsnap_sound = ExtResource("12_ka6na")
+align_rotation = true
+metadata/_custom_type_script = "uid://bb2a6x8xeewb1"
+
+[node name="Sprite2D" type="Sprite2D" parent="PointSnap"]
+scale = Vector2(0.75, 0.75)
+texture = SubResource("GradientTexture2D_rjlui")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PointSnap"]
+shape = SubResource("RectangleShape2D_l8rvp")
+
+[node name="PointDrag-correct" type="CharacterBody2D" parent="."]
+position = Vector2(667, 316)
+collision_layer = 2
+collision_mask = 4294967293
+input_pickable = true
+script = ExtResource("8_2sdst")
+metadata/_custom_type_script = "uid://bbkgyol1fyypt"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PointDrag-correct"]
+shape = SubResource("RectangleShape2D_2sdst")
+
+[node name="Sprite2D" type="Sprite2D" parent="PointDrag-correct"]
+modulate = Color(1, 0, 0, 1)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_k25ba")
+
+[node name="PointDrag-wrong" type="CharacterBody2D" parent="."]
+position = Vector2(675, 499.93)
+collision_layer = 2
+collision_mask = 4294967293
+input_pickable = true
+script = ExtResource("8_2sdst")
+metadata/_custom_type_script = "uid://bbkgyol1fyypt"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PointDrag-wrong"]
+shape = SubResource("RectangleShape2D_2sdst")
+
+[node name="Sprite2D" type="Sprite2D" parent="PointDrag-wrong"]
+modulate = Color(1, 0, 0, 1)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_k25ba")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(631, 560)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-47, 0)
+shape = SubResource("RectangleShape2D_d460w")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(631, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(-47, 0)
+shape = SubResource("RectangleShape2D_d460w")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(396, 8)
+rotation = 1.57079
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("RectangleShape2D_unm53")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+position = Vector2(156, 259)
+rotation = 3.14159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+shape = SubResource("RectangleShape2D_unm53")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(1154, 455)
+rotation = 1.57079
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(-47, 0)
+shape = SubResource("RectangleShape2D_d460w")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="."]
+position = Vector2(0, 455)
+rotation = 1.57079
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6"]
+position = Vector2(-47, 0)
+shape = SubResource("RectangleShape2D_d460w")
