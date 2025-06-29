@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://b2jh5srpbtxlt"]
+[gd_scene load_steps=42 format=3 uid="uid://b2jh5srpbtxlt"]
 
 [ext_resource type="Script" uid="uid://dfnr5b22gpy7h" path="res://addons/PointMaker/scripts/point_trigger.gd" id="1_y5tfu"]
 [ext_resource type="Texture2D" uid="uid://cy4eg484bmaus" path="res://addons/PointMaker/icon.png" id="2_k25ba"]
@@ -27,6 +27,9 @@ size = Vector2(303, 46)
 size = Vector2(303, 46)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kd12g"]
+size = Vector2(303, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1l21t"]
 size = Vector2(303, 46)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qou4l"]
@@ -425,9 +428,13 @@ shape = SubResource("RectangleShape2D_2k7cx")
 position = Vector2(622.5, 598)
 shape = SubResource("RectangleShape2D_ka6na")
 
-[node name="@CollisionShape2D@21762" type="CollisionShape2D" parent="Label/PointTrigger-Scene/PointHover"]
+[node name="_CollisionShape2D_21763" type="CollisionShape2D" parent="Label/PointTrigger-Scene/PointHover"]
 position = Vector2(622.5, 598)
 shape = SubResource("RectangleShape2D_kd12g")
+
+[node name="@CollisionShape2D@31022" type="CollisionShape2D" parent="Label/PointTrigger-Scene/PointHover"]
+position = Vector2(622.5, 598)
+shape = SubResource("RectangleShape2D_1l21t")
 
 [node name="Icon" type="Node2D" parent="."]
 position = Vector2(380, -12)
