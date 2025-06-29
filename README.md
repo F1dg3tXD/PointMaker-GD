@@ -59,9 +59,7 @@ Each node exposes properties in the Inspector for customizing its behavior. Comm
 
 ## 🧑‍💻 Node Reference
 
----
-
-Refer to [PointMaker Docs]() for Node Reference.
+Refer to [PointMaker Docs](https://f1dg3txd.github.io/PointMaker-GD) for Node Reference.
 
 ---
 
