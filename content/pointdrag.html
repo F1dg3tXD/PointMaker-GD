@@ -1,0 +1,26 @@
+<hr>
+<h2 id="pointdrag"><code>PointDrag</code></h2>
+<div class="node-details">
+    <p><strong>Description:</strong><br>
+    A draggable object with optional gravity. Emits signals for drag events.</p>
+
+    <p><strong>Properties:</strong></p>
+    <ul>
+        <li><code>gravity_enabled:</code> <strong>bool</strong> — If true, gravity is applied when not dragging.</li>
+        <li><code>gravity_velocity:</code> <strong>float</strong> — Gravity strength.</li>
+    </ul>
+
+    <p><strong>Signals:</strong></p>
+    <ul>
+        <li><code>drag_started</code> — Emitted when dragging starts.</li>
+        <li><code>drag_moved(new_position: Vector2)</code> — Emitted as the object is dragged.</li>
+        <li><code>drag_ended</code> — Emitted when dragging ends.</li>
+    </ul>
+
+    <p><strong>Usage:</strong></p>
+    <ul>
+        <li>Add as a child of your scene.</li>
+        <li>Add a <code>CollisionShape2D</code> or <code>CollisionPolygon2D</code> as a child.</li>
+        <li>Configure properties in the Inspector.</li>
+    </ul>
+</div>

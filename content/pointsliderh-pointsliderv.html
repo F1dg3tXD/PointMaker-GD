@@ -1,0 +1,28 @@
+<hr>
+<h2 id="pointsliderh-pointsliderv"><code>PointSliderH</code> / <code>PointSliderV</code></h2>
+<div class="node-details">
+    <p><strong>Description:</strong><br>
+    Horizontal (<code>PointSliderH</code>) and vertical (<code>PointSliderV</code>) sliders along a <code>Path2D</code>.</p>
+
+    <p><strong>Properties:</strong></p>
+    <ul>
+        <li><code>handle_path:</code> <strong>NodePath</strong> — Path to the handle sprite/node to move.</li>
+        <li><code>path2d_path:</code> <strong>NodePath</strong> — Path to the <code>Path2D</code> node.</li>
+        <li><code>value:</code> <strong>float</strong> — Initial value (0.0–1.0).</li>
+        <li><code>step:</code> <strong>float</strong> — Snap increment (0 for smooth).</li>
+    </ul>
+
+    <p><strong>Signals:</strong></p>
+    <ul>
+        <li><code>value_changed(value: float)</code> — Emitted when the value changes during drag.</li>
+        <li><code>value_set(value: float)</code> — Emitted when the value is set (on release).</li>
+    </ul>
+
+    <p><strong>Usage:</strong></p>
+    <ul>
+        <li>Add as a child of your scene.</li>
+        <li>Add a <code>CollisionShape2D</code> or <code>CollisionPolygon2D</code> as a child.</li>
+        <li>Configure properties in the Inspector.</li>
+        <li>Set <code>handle_path</code> and <code>path2d_path</code> to the appropriate nodes.</li>
+    </ul>
+</div>

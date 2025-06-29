@@ -1,0 +1,31 @@
+<hr>
+<h2 id="pointtrigger"><code>PointTrigger</code></h2>
+<div class="node-details">
+    <p><strong>Description:</strong><br>
+    Triggers sounds, animations, or scene changes when a body enters the area or when clicked with the mouse.</p>
+
+    <p><strong>Properties:</strong></p>
+    <ul>
+        <li><code>sounds:</code> <strong>Array[AudioStream]</strong> — List of sounds to play when triggered.</li>
+        <li><code>animation_player_path:</code> <strong>NodePath</strong> — Path to an <code>AnimationPlayer</code> node to play an animation.</li>
+        <li><code>animation_name:</code> <strong>String</strong> — Name of the animation to play.</li>
+        <li><code>scene_to_load:</code> <strong>String</strong> — Path to a <code>.tscn</code> scene to load when triggered.</li>
+        <li><code>trigger_once:</code> <strong>bool</strong> — If true, can only be triggered once.</li>
+    </ul>
+
+    <p><strong>Signals:</strong></p>
+    <ul>
+        <li><code>trigger_started</code> — Emitted when the trigger is activated (by body enter or mouse click).</li>
+        <li><code>sounds_played</code> — Emitted after all sounds have been played.</li>
+        <li><code>animation_played(name: String)</code> — Emitted after the animation is played.</li>
+        <li><code>scene_changed(path: String)</code> — Emitted after the scene is changed.</li>
+    </ul>
+
+    <p><strong>Usage:</strong></p>
+    <ul>
+        <li>Add as a child of your scene.</li>
+        <li>Add a <code>CollisionShape2D</code> or <code>CollisionPolygon2D</code> as a child.</li>
+        <li>Configure properties in the Inspector.</li>
+        <li>Triggers on body enter or mouse click.</li>
+    </ul>
+</div>

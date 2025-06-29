@@ -1,0 +1,38 @@
+<hr>
+<h2 id="pointsnap"><code>PointSnap</code></h2>
+<div class="node-details">
+    <p><strong>Description:</strong><br>
+    Allows a <code>PointDrag</code> node to snap into place, with optional alignment, feedback, and locking.</p>
+
+    <p><strong>Properties:</strong></p>
+    <ul>
+        <li><code>accepted_dragger:</code> <strong>NodePath</strong> — Only accept this drag node (if <code>allow_any_dragger</code> is false).</li>
+        <li><code>allow_any_dragger:</code> <strong>bool</strong> — Accept any drag node.</li>
+        <li><code>require_specific_dragger:</code> <strong>bool</strong> — Only accept the specific dragger if true (used with <code>allow_any_dragger</code>).</li>
+        <li><code>animation_player_path:</code> <strong>NodePath</strong> — Path to an <code>AnimationPlayer</code> node.</li>
+        <li><code>snap_in_animation:</code> <strong>String</strong> — Animation to play when snapped in.</li>
+        <li><code>snap_out_animation:</code> <strong>String</strong> — Animation to play when unsnapped.</li>
+        <li><code>correct_snap_sound:</code> <strong>AudioStream</strong> — Sound to play on correct snap.</li>
+        <li><code>wrong_snap_sound:</code> <strong>AudioStream</strong> — Sound to play on wrong snap.</li>
+        <li><code>unsnap_sound:</code> <strong>AudioStream</strong> — Sound to play when unsnapped.</li>
+        <li><code>align_rotation:</code> <strong>bool</strong> — Align rotation when snapped.</li>
+        <li><code>align_scale:</code> <strong>bool</strong> — Align scale when snapped.</li>
+        <li><code>lock_when_snapped:</code> <strong>bool</strong> — Lock the drag node when snapped.</li>
+    </ul>
+
+    <p><strong>Signals:</strong></p>
+    <ul>
+        <li><code>snapped(dragger: Node)</code> — Emitted when a dragger is successfully snapped.</li>
+        <li><code>unsnapped(dragger: Node)</code> — Emitted when a snapped dragger is released.</li>
+        <li><code>snap_failed(dragger: Node)</code> — Emitted if snapping fails (e.g., already snapped).</li>
+        <li><code>rejected_dragger(dragger: Node)</code> — Emitted if a dragger is not accepted for snapping.</li>
+    </ul>
+
+    <p><strong>Usage:</strong></p>
+    <ul>
+        <li>Add as a child of your scene.</li>
+        <li>Add a <code>CollisionShape2D</code> or <code>CollisionPolygon2D</code> as a child.</li>
+        <li>Configure properties in the Inspector.</li>
+        <li>Place in the scene where you want objects to snap.</li>
+    </ul>
+</div>

@@ -1,0 +1,236 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PointMaker GD Documentation</title>
+    <link rel="icon" type="image/png" href="/icon.png">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #282c34; /* Dark mode background */
+            color: #abb2bf; /* Dark mode text color */
+            display: flex;
+            justify-content: center;
+        }
+        .main-wrapper {
+            max-width: 1200px; /* Wider to accommodate TOC */
+            width: 100%;
+            display: flex;
+            gap: 30px; /* Space between TOC and content */
+        }
+        .container {
+            flex-grow: 1;
+            background-color: #3e4452; /* Dark mode container background */
+            padding: 30px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Darker shadow */
+        }
+        .sidebar {
+            width: 250px;
+            flex-shrink: 0;
+            background-color: #3e4452; /* Dark mode container background */
+            padding: 30px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 20px; /* Stick to top */
+            height: fit-content; /* Adjust height to content */
+            align-self: flex-start; /* Stick to top of the flex container */
+        }
+        .sidebar h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #545b6a;
+            font-size: 1.6em;
+            color: #61afef;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin-bottom: 8px;
+            padding: 0;
+            background: none;
+            box-shadow: none;
+        }
+        .sidebar ul li a {
+            color: #abb2bf;
+            text-decoration: none;
+            display: block;
+            padding: 5px 0;
+            transition: color 0.2s ease;
+        }
+        .sidebar ul li a:hover {
+            color: #e5c07b;
+        }
+        .sidebar ul li a.active { 
+            color: #61afef;
+            font-weight: bold;
+        }
+        /* New style for sub-list items in documentation */
+        .node-details ul ul li {
+            background: none;
+            box-shadow: none;
+            margin-bottom: 0px; /* Tighter spacing for sub-list items */
+            padding: 0px 0px 0px 20px; /* Indent sub-list items */
+            font-size: 0.95em; /* Slightly smaller for details */
+        }
+        .node-details ul ul li::before {
+            content: '-'; /* Use a dash for sub-list items */
+            color: #c678dd;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+            margin-right: 5px;
+        }
+
+        /* Sidebar nested list styles */
+        .sidebar ul ul {
+            padding-left: 15px; /* Indent sub-items */
+            margin-top: 5px;
+            display: none; /* Initially hidden */
+        }
+        .sidebar ul ul.expanded {
+            display: block; /* Show when expanded */
+        }
+        .sidebar ul li.has-children > a {
+            position: relative;
+            padding-right: 20px; /* Space for arrow */
+        }
+        .sidebar ul li.has-children > a::after {
+            content: '►'; /* Right-pointing triangle for collapsed state */
+            position: absolute;
+            right: 5px; /* Adjust position */
+            top: 50%;
+            transform: translateY(-50%);
+            transition: transform 0.2s ease;
+            font-size: 0.7em; /* Smaller arrow */
+            color: #8c92a3; /* Color matching sub-items */
+            font-weight: normal; /* Ensure it's not bold */
+        }
+        .sidebar ul li.has-children.expanded > a::after {
+            transform: translateY(-50%) rotate(90deg); /* Down-pointing for expanded state */
+        }
+
+        h1, h2, h3 {
+            color: #61afef; /* Dark mode heading color */
+            border-bottom: 2px solid #545b6a; /* Dark mode border */
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        h1 {
+            font-size: 2.8em;
+            text-align: center;
+            border-bottom: none;
+            padding-bottom: 0;
+            color: #e06c75; /* Dark mode primary heading color */
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        h1 img {
+            height: 60px; /* Adjust as needed */
+            width: auto;
+        }
+        h2 {
+            font-size: 2em;
+        }
+        h3 {
+            font-size: 1.5em;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.15), rgba(0, 0, 0, 0)); /* Dark mode gradient */
+            margin: 40px 0;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        ul li {
+            background: #4b5262; /* Dark mode list item background */
+            margin-bottom: 8px;
+            padding: 12px 15px;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Darker shadow */
+            display: flex;
+            align-items: center;
+        }
+        ul li::before {
+            content: '•';
+            color: #c678dd; /* Dark mode bullet color */
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+            margin-right: 5px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        code {
+            background-color: #2c313a; /* Dark mode code background */
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9em;
+            color: #98c379; /* Dark mode code text color */
+        }
+        strong {
+            color: #e5c07b; /* Dark mode strong text color */
+        }
+        blockquote {
+            background-color: #3d424b; /* Dark mode blockquote background */
+            border-left: 5px solid #61afef; /* Dark mode border */
+            margin: 20px 0;
+            padding: 15px 20px;
+            border-radius: 4px;
+            color: #abb2bf; /* Dark mode blockquote text color */
+        }
+
+        /* Tab styling - NO LONGER USED */
+        /*
+        .tab-nav { display: none; }
+        .tab-button { display: none; }
+        .tab-button.active { display: none; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        */
+    </style>
+    <script type="importmap">
+        {
+            "imports": {
+                "script": "./script.js"
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="main-wrapper">
+        <aside class="sidebar">
+            <h2>Table of Contents</h2>
+            <ul id="table-of-contents">
+                <!-- TOC will be generated here by JavaScript -->
+            </ul>
+        </aside>
+        <div class="container">
+            <h1><img src="/icon.png" alt="PointMaker GD Logo">PointMaker GD</h1>
+            <p>A Godot port of PointMaker by Splite.</p>
+
+            <div id="dynamic-content-area">
+                <!-- Documentation content will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </div>
+    <script type="module" src="/script.js"></script>
+</body>
+</html>

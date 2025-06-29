@@ -1,0 +1,40 @@
+<hr>
+<h2 id="how-to-use">🧩 How to Use</h2>
+<h3 id="enable-plugin">1. Enable the Plugin</h3>
+<ul>
+    <li>Go to <strong>Project → Project Settings → Plugins</strong></li>
+    <li>Enable <code>PointMaker</code></li>
+</ul>
+<h3 id="add-pointmaker-node">2. Add a PointMaker Node</h3>
+<ul>
+    <li>In the scene tree, click the "+" button to add a new node.</li>
+    <li>Search for any of the following custom nodes:
+        <ul>
+            <li><code>PointTrigger</code></li>
+            <li><code>PointHover</code></li>
+            <li><code>PointHold</code></li>
+            <li><code>PointDrag</code></li>
+            <li><code>PointSnap</code></li>
+            <li><code>PointRadial</code></li>
+            <li><code>PointSliderH</code></li>
+            <li><code>PointSliderV</code></li>
+        </ul>
+    </li>
+</ul>
+<h3 id="add-collisionshape2d">3. Add a <code>CollisionShape2D</code></h3>
+<blockquote>This is <strong>required</strong> for most nodes to detect collisions or mouse input.</blockquote>
+<ul>
+    <li>Right-click your PointMaker node → Add Child Node → <code>CollisionShape2D</code> (or <code>CollisionPolygon2D</code>)</li>
+    <li>Set its <code>shape</code> (e.g., <code>RectangleShape2D</code>, <code>CircleShape2D</code>)</li>
+    <li>Resize as needed to define the interactive area</li>
+</ul>
+<h3 id="configure-node">4. Configure the Node in the Inspector</h3>
+<p>Each node exposes properties in the Inspector for customizing its behavior. Common options include:</p>
+<ul>
+    <li><strong>Sounds</strong>: Add one or more <code>AudioStream</code> files</li>
+    <li><strong>Animation Player</strong>: Provide a node path to the <code>AnimationPlayer</code> to trigger</li>
+    <li><strong>Animation Name</strong>: Name of the animation to play</li>
+    <li><strong>Scene to Load</strong>: Optional <code>.tscn</code> path to change scenes when triggered</li>
+    <li><strong>Trigger Once</strong>: Enable if you only want the trigger to fire a single time</li>
+    <li><strong>Drag/Snap/Slider/Knob Options</strong>: See below for node-specific properties</li>
+</ul>

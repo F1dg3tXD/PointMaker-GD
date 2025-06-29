@@ -1,0 +1,29 @@
+<hr>
+<h2 id="pointhover"><code>PointHover</code></h2>
+<div class="node-details">
+    <p><strong>Description:</strong><br>
+    Detects when the mouse hovers over the area and can trigger sounds or animations.</p>
+
+    <p><strong>Properties:</strong></p>
+    <ul>
+        <li><code>use_own_collision:</code> <strong>bool</strong> — If true, uses its own collision shape; otherwise, inherits from parent.</li>
+        <li><code>stop_animation_on_exit:</code> <strong>bool</strong> — If true, stops the animation when the mouse leaves.</li>
+        <li><code>sounds:</code> <strong>Array[AudioStream]</strong> — Sounds to play on hover.</li>
+        <li><code>animation_player_path:</code> <strong>NodePath</strong> — Path to an <code>AnimationPlayer</code> node.</li>
+        <li><code>animation_name:</code> <strong>String</strong> — Name of the animation to play.</li>
+    </ul>
+
+    <p><strong>Signals:</strong></p>
+    <ul>
+        <li><code>hover_started</code> — Emitted when the mouse enters the area.</li>
+        <li><code>hover_triggered</code> — Emitted when hover actions are triggered.</li>
+        <li><code>hover_ended</code> — Emitted when the mouse leaves the area.</li>
+    </ul>
+
+    <p><strong>Usage:</strong></p>
+    <ul>
+        <li>Add as a child of your scene.</li>
+        <li>Add a <code>CollisionShape2D</code> or <code>CollisionPolygon2D</code> as a child.</li>
+        <li>Configure properties in the Inspector.</li>
+    </ul>
+</div>

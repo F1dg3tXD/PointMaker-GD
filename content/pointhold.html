@@ -1,0 +1,29 @@
+<hr>
+<h2 id="pointhold"><code>PointHold</code></h2>
+<div class="node-details">
+    <p><strong>Description:</strong><br>
+    Triggers after holding the mouse button over the area for a set duration.</p>
+
+    <p><strong>Properties:</strong></p>
+    <ul>
+        <li><code>required_hold_time:</code> <strong>float</strong> — Seconds to hold before triggering.</li>
+        <li><code>hold_loop:</code> <strong>bool</strong> — If true, animation loops while held.</li>
+        <li><code>cancel_on_move:</code> <strong>bool</strong> — Cancels hold if mouse leaves area.</li>
+        <li><code>animation_player_path:</code> <strong>NodePath</strong> — Path to an <code>AnimationPlayer</code> node.</li>
+        <li><code>animation_name:</code> <strong>String</strong> — Name of the animation to play.</li>
+    </ul>
+
+    <p><strong>Signals:</strong></p>
+    <ul>
+        <li><code>hold_started</code> — Emitted when holding starts.</li>
+        <li><code>hold_triggered</code> — Emitted when hold time is reached.</li>
+        <li><code>hold_released</code> — Emitted when the hold is released or canceled.</li>
+    </ul>
+
+    <p><strong>Usage:</strong></p>
+    <ul>
+        <li>Add as a child of your scene.</li>
+        <li>Add a <code>CollisionShape2D</code> or <code>CollisionPolygon2D</code> as a child.</li>
+        <li>Configure properties in the Inspector.</li>
+    </ul>
+</div>

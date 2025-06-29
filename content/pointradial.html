@@ -1,0 +1,30 @@
+<hr>
+<h2 id="pointradial"><code>PointRadial</code></h2>
+<div class="node-details">
+    <p><strong>Description:</strong><br>
+    A rotatable knob for value selection, e.g., dials or rotary controls.</p>
+
+    <p><strong>Properties:</strong></p>
+    <ul>
+        <li><code>knob_path:</code> <strong>NodePath</strong> — Path to the knob sprite/node to rotate.</li>
+        <li><code>min_angle:</code> <strong>float</strong> — Minimum angle (degrees).</li>
+        <li><code>max_angle:</code> <strong>float</strong> — Maximum angle (degrees).</li>
+        <li><code>use_limits:</code> <strong>bool</strong> — If true, restricts rotation to min/max.</li>
+        <li><code>start_value:</code> <strong>float</strong> — Initial value (0.0–1.0).</li>
+        <li><code>step:</code> <strong>float</strong> — Snap increment (0 for smooth).</li>
+    </ul>
+
+    <p><strong>Signals:</strong></p>
+    <ul>
+        <li><code>value_changed(value: float)</code> — Emitted when the value changes during drag.</li>
+        <li><code>value_set(value: float)</code> — Emitted when the value is set (on release).</li>
+    </ul>
+
+    <p><strong>Usage:</strong></p>
+    <ul>
+        <li>Add as a child of your scene.</li>
+        <li>Add a <code>CollisionShape2D</code> or <code>CollisionPolygon2D</code> as a child.</li>
+        <li>Configure properties in the Inspector.</li>
+        <li>Set <code>knob_path</code> to the node you want to rotate.</li>
+    </ul>
+</div>
