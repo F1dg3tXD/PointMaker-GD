@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-            const response = await fetch(`/content/${page.file}`);
+            const response = await fetch(`https://github.com/F1dg3tXD/PointMaker-GD/tree/5676fd1f88b26513a1ac81e124e976c50fe1cf96/content/${page.file}`);
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
