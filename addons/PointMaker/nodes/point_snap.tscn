@@ -4,3 +4,4 @@
 
 [node name="pointSnap" type="Area2D"]
 script = ExtResource("1_xywf5")
+require_specific_dragger = null

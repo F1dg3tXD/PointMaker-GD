@@ -2,11 +2,17 @@
 extends Area2D
 class_name PointSnap
 
+signal snapped(dragger: Node)
+signal unsnapped(dragger: Node)
+signal snap_failed(dragger: Node)
+signal rejected_dragger(dragger: Node)
+
 var snapped_object: Node = null
 var overlapping_drags: Array[Node] = []
 
 @export var accepted_dragger: NodePath
 @export var allow_any_dragger: bool = true
+@export var require_specific_dragger: bool = false  # Only applies if allow_any_dragger is true
 
 @export var animation_player_path: NodePath
 @export var snap_in_animation: String = ""
@@ -31,9 +37,18 @@ func _on_body_entered(body: Node):
 	if not body or not body.is_class("CharacterBody2D"):
 		return
 
-	if not allow_any_dragger and body != get_node_or_null(accepted_dragger):
-		_play_sound(wrong_snap_sound)
-		return
+	if not allow_any_dragger:
+		if body != get_node_or_null(accepted_dragger):
+			_play_sound(wrong_snap_sound)
+			_play_animation(snap_out_animation)
+			emit_signal("rejected_dragger", body)
+			return
+	elif require_specific_dragger:
+		if body != get_node_or_null(accepted_dragger):
+			_play_sound(wrong_snap_sound)
+			_play_animation(snap_out_animation)
+			emit_signal("rejected_dragger", body)
+			return
 
 	if body.has_signal("drag_ended"):
 		if not body.is_connected("drag_ended", Callable(self, "_on_drag_ended")):
@@ -52,6 +67,7 @@ func _on_drag_ended():
 
 func try_snap(point_drag: Node):
 	if snapped_object or not is_instance_valid(point_drag):
+		emit_signal("snap_failed", point_drag)
 		return
 
 	snapped_object = point_drag
@@ -70,6 +86,7 @@ func try_snap(point_drag: Node):
 
 	_play_sound(correct_snap_sound)
 	_play_animation(snap_in_animation)
+	emit_signal("snapped", snapped_object)
 
 	if snapped_object.has_signal("drag_started"):
 		snapped_object.connect("drag_started", Callable(self, "_on_drag_started"), CONNECT_ONE_SHOT)
@@ -84,6 +101,7 @@ func _on_drag_started():
 
 		_play_sound(unsnap_sound)
 		_play_animation(snap_out_animation)
+		emit_signal("unsnapped", snapped_object)
 		snapped_object = null
 
 func _play_animation(name: String):
