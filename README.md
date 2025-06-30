@@ -1,6 +1,6 @@
 # PointMaker GD
 
-A Godot port of PointMaker by Splite.
+A Godot sucessor of PointMaker by Splite.
 
 ---
 
