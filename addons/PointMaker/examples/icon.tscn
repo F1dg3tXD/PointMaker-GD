@@ -61,8 +61,8 @@ libraries = {
 position = Vector2(526, 224)
 script = ExtResource("3_qou4l")
 animation_player_path = NodePath("../Icon/AnimationPlayer")
-animation_name = "fader"
 trigger_once = false
+animation_name = "fader"
 metadata/_custom_type_script = "uid://dfnr5b22gpy7h"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PointTrigger"]

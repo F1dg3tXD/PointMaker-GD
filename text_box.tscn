@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://8kt0g5butbqw"]
+
+[ext_resource type="Script" uid="uid://dfnr5b22gpy7h" path="res://addons/PointMaker/scripts/point_trigger.gd" id="1_k7ve7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d0rgj"]
+size = Vector2(76, 50.5)
+
+[node name="textBox" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_right = 1060.0
+offset_bottom = 71.0
+theme_override_font_sizes/font_size = 40
+text = "Insert Text Here"
+
+[node name="PointTrigger" type="Area2D" parent="Label"]
+position = Vector2(1049, 144)
+script = ExtResource("1_k7ve7")
+animation_name = ""
+metadata/_custom_type_script = "uid://dfnr5b22gpy7h"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Label/PointTrigger"]
+position = Vector2(39, 25.75)
+shape = SubResource("RectangleShape2D_d0rgj")
+
+[node name="Button" type="Label" parent="Label/PointTrigger"]
+offset_right = 77.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 30
+text = "Next"

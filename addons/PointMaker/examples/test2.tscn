@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://b2jh5srpbtxlt"]
+[gd_scene load_steps=51 format=3 uid="uid://b2jh5srpbtxlt"]
 
 [ext_resource type="Script" uid="uid://dfnr5b22gpy7h" path="res://addons/PointMaker/scripts/point_trigger.gd" id="1_y5tfu"]
 [ext_resource type="Texture2D" uid="uid://cy4eg484bmaus" path="res://addons/PointMaker/icon.png" id="2_k25ba"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dst43newpkwvj" path="res://addons/PointMaker/assets/red arrow.png" id="10_l8rvp"]
 [ext_resource type="AudioStream" uid="uid://b58gdh44q6rki" path="res://addons/PointMaker/assets/wrong.wav" id="11_2k7cx"]
 [ext_resource type="AudioStream" uid="uid://jyvlmsob3p78" path="res://addons/PointMaker/assets/out.wav" id="12_ka6na"]
+[ext_resource type="Script" uid="uid://b8u42wbmf07g0" path="res://addons/PointMaker/scripts/point_hold.gd" id="14_2k7cx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ji76j"]
 size = Vector2(303, 46)
@@ -33,6 +34,21 @@ size = Vector2(303, 46)
 size = Vector2(303, 46)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h6nx5"]
+size = Vector2(303, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gn6wc"]
+size = Vector2(303, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ax281"]
+size = Vector2(303, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ap4s"]
+size = Vector2(303, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_icxby"]
+size = Vector2(303, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fwe8l"]
 size = Vector2(303, 46)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qou4l"]
@@ -139,6 +155,18 @@ tracks/8/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("PointHold/holding:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.75, 0.75)]
 }
 
 [sub_resource type="Animation" id="Animation_d460w"]
@@ -250,6 +278,22 @@ tracks/0/keys = {
 "values": [1.0, 0.0, 1.0]
 }
 
+[sub_resource type="Animation" id="Animation_2k7cx"]
+resource_name = "holding"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointHold/holding:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.75, 0.75), Vector2(0.3, 0.3), Vector2(0.75, 0.75)]
+}
+
 [sub_resource type="Animation" id="Animation_o87qf"]
 resource_name = "textColor"
 loop_mode = 1
@@ -304,6 +348,7 @@ _data = {
 &"dragIn": SubResource("Animation_d460w"),
 &"dragOut": SubResource("Animation_l8rvp"),
 &"fader": SubResource("Animation_k25ba"),
+&"holding": SubResource("Animation_2k7cx"),
 &"textColor": SubResource("Animation_o87qf")
 }
 
@@ -343,12 +388,16 @@ fill_to = Vector2(0, 0)
 size = Vector2(48, 198.5)
 
 [sub_resource type="Gradient" id="Gradient_l8rvp"]
+colors = PackedColorArray(1, 0, 0, 1, 0, 0.431373, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_rjlui"]
 gradient = SubResource("Gradient_l8rvp")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2kwva"]
+size = Vector2(48, 48)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l8rvp"]
-size = Vector2(26, 26)
+size = Vector2(46, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2sdst"]
 size = Vector2(100, 100)
@@ -406,6 +455,7 @@ text = "Previous Scene"
 position = Vector2(-496, -576)
 script = ExtResource("1_y5tfu")
 scene_to_load = "res://addons/PointMaker/examples/test.tscn"
+animation_name = ""
 metadata/_custom_type_script = "uid://dfnr5b22gpy7h"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Label/PointTrigger-Scene"]
@@ -415,6 +465,7 @@ shape = SubResource("RectangleShape2D_ji76j")
 [node name="PointHover" type="Area2D" parent="Label/PointTrigger-Scene"]
 script = ExtResource("2_mkksx")
 stop_animation_on_exit = true
+trigger_once = false
 animation_player_path = NodePath("../../../AnimationPlayer")
 animation_name = "textColor"
 metadata/_custom_type_script = "uid://ddf7lqisije6p"
@@ -439,9 +490,29 @@ shape = SubResource("RectangleShape2D_kd12g")
 position = Vector2(622.5, 598)
 shape = SubResource("RectangleShape2D_1l21t")
 
-[node name="@CollisionShape2D@21762" type="CollisionShape2D" parent="Label/PointTrigger-Scene/PointHover"]
+[node name="_CollisionShape2D_21764" type="CollisionShape2D" parent="Label/PointTrigger-Scene/PointHover"]
 position = Vector2(622.5, 598)
 shape = SubResource("RectangleShape2D_h6nx5")
+
+[node name="_CollisionShape2D_21765" type="CollisionShape2D" parent="Label/PointTrigger-Scene/PointHover"]
+position = Vector2(622.5, 598)
+shape = SubResource("RectangleShape2D_gn6wc")
+
+[node name="_CollisionShape2D_21766" type="CollisionShape2D" parent="Label/PointTrigger-Scene/PointHover"]
+position = Vector2(622.5, 598)
+shape = SubResource("RectangleShape2D_ax281")
+
+[node name="_CollisionShape2D_21767" type="CollisionShape2D" parent="Label/PointTrigger-Scene/PointHover"]
+position = Vector2(622.5, 598)
+shape = SubResource("RectangleShape2D_2ap4s")
+
+[node name="_CollisionShape2D_21768" type="CollisionShape2D" parent="Label/PointTrigger-Scene/PointHover"]
+position = Vector2(622.5, 598)
+shape = SubResource("RectangleShape2D_icxby")
+
+[node name="@CollisionShape2D@21762" type="CollisionShape2D" parent="Label/PointTrigger-Scene/PointHover"]
+position = Vector2(622.5, 598)
+shape = SubResource("RectangleShape2D_fwe8l")
 
 [node name="Icon" type="Node2D" parent="."]
 position = Vector2(380, -12)
@@ -458,8 +529,8 @@ fade_opacity = 1.0
 position = Vector2(-27, -82)
 script = ExtResource("1_y5tfu")
 animation_player_path = NodePath("../../../AnimationPlayer")
-animation_name = "fader"
 trigger_once = false
+animation_name = "fader"
 metadata/_custom_type_script = "uid://dfnr5b22gpy7h"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Icon/Icon/PointTrigger"]
@@ -660,6 +731,22 @@ texture = ExtResource("2_k25ba")
 position = Vector2(0, -64.75)
 shape = SubResource("RectangleShape2D_rjlui")
 
+[node name="PointHold" type="Area2D" parent="."]
+visible = false
+position = Vector2(466, 69)
+script = ExtResource("14_2k7cx")
+cancel_on_move = false
+animation_player_path = NodePath("../AnimationPlayer")
+animation_name = "holding"
+metadata/_custom_type_script = "uid://b8u42wbmf07g0"
+
+[node name="holding" type="Sprite2D" parent="PointHold"]
+scale = Vector2(0.75, 0.75)
+texture = SubResource("GradientTexture2D_rjlui")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PointHold"]
+shape = SubResource("RectangleShape2D_2kwva")
+
 [node name="PointSnap" type="Area2D" parent="."]
 position = Vector2(640, 129)
 collision_layer = 3
@@ -669,12 +756,12 @@ script = ExtResource("9_d460w")
 accepted_dragger = NodePath("../PointDrag-correct")
 allow_any_dragger = false
 animation_player_path = NodePath("../AnimationPlayer")
-snap_in_animation = "dragIn"
-snap_out_animation = "dragOut"
 correct_snap_sound = ExtResource("10_d6c5p")
 wrong_snap_sound = ExtResource("11_2k7cx")
 unsnap_sound = ExtResource("12_ka6na")
 align_rotation = true
+snap_in_animation = "dragIn"
+snap_out_animation = "dragOut"
 metadata/_custom_type_script = "uid://bb2a6x8xeewb1"
 
 [node name="Sprite2D" type="Sprite2D" parent="PointSnap"]

@@ -4,3 +4,5 @@
 
 [node name="pointSnap" type="Area2D"]
 script = ExtResource("1_xywf5")
+snap_in_animation = ""
+snap_out_animation = ""

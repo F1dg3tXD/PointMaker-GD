@@ -12,11 +12,12 @@ var overlapping_drags: Array[Node] = []
 
 @export var accepted_dragger: NodePath
 @export var allow_any_dragger: bool = true
-@export var require_specific_dragger: bool = false  # Only applies if allow_any_dragger is true
+@export var require_specific_dragger: bool = false  # Applies only if allow_any_dragger is true
 
 @export var animation_player_path: NodePath
-@export var snap_in_animation: String = ""
-@export var snap_out_animation: String = ""
+var snap_in_animation: String = ""
+var snap_out_animation: String = ""
+var _available_animations: PackedStringArray = []
 
 @export var correct_snap_sound: AudioStream
 @export var wrong_snap_sound: AudioStream
@@ -29,6 +30,7 @@ var overlapping_drags: Array[Node] = []
 func _ready():
 	connect("body_entered", _on_body_entered)
 	connect("body_exited", _on_body_exited)
+	_refresh_animation_list()
 
 	if not has_node("CollisionShape2D") and not has_node("CollisionPolygon2D"):
 		push_warning("⚠ PointSnap requires a CollisionShape2D or CollisionPolygon2D to define the snap zone.")
@@ -37,14 +39,16 @@ func _on_body_entered(body: Node):
 	if not body or not body.is_class("CharacterBody2D"):
 		return
 
+	var expected = get_node_or_null(accepted_dragger)
+
 	if not allow_any_dragger:
-		if body != get_node_or_null(accepted_dragger):
+		if body != expected:
 			_play_sound(wrong_snap_sound)
 			_play_animation(snap_out_animation)
 			emit_signal("rejected_dragger", body)
 			return
 	elif require_specific_dragger:
-		if body != get_node_or_null(accepted_dragger):
+		if body != expected:
 			_play_sound(wrong_snap_sound)
 			_play_animation(snap_out_animation)
 			emit_signal("rejected_dragger", body)
@@ -119,3 +123,49 @@ func _play_sound(stream: AudioStream):
 	add_child(player)
 	player.play()
 	player.connect("finished", player.queue_free)
+
+func _refresh_animation_list():
+	_available_animations.clear()
+	var player = get_node_or_null(animation_player_path)
+	if player and player is AnimationPlayer:
+		_available_animations = player.get_animation_list()
+
+func _get_property_list() -> Array[Dictionary]:
+	return [
+		{
+			"name": "snap_in_animation",
+			"type": TYPE_STRING,
+			"hint": PROPERTY_HINT_ENUM,
+			"hint_string": ",".join(_available_animations),
+			"usage": PROPERTY_USAGE_DEFAULT
+		},
+		{
+			"name": "snap_out_animation",
+			"type": TYPE_STRING,
+			"hint": PROPERTY_HINT_ENUM,
+			"hint_string": ",".join(_available_animations),
+			"usage": PROPERTY_USAGE_DEFAULT
+		}
+	]
+
+func _get(property: StringName) -> Variant:
+	match property:
+		"snap_in_animation":
+			return snap_in_animation
+		"snap_out_animation":
+			return snap_out_animation
+	return null
+
+func _set(property: StringName, value: Variant) -> bool:
+	match property:
+		"snap_in_animation":
+			snap_in_animation = value
+			return true
+		"snap_out_animation":
+			snap_out_animation = value
+			return true
+	return false
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_READY or what == NOTIFICATION_ENTER_TREE:
+		call_deferred("_refresh_animation_list")

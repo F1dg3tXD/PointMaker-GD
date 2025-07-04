@@ -4,3 +4,4 @@
 
 [node name="PointTrigger" type="Area2D"]
 script = ExtResource("1_up45p")
+animation_name = ""

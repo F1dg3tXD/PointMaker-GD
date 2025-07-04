@@ -1,0 +1,127 @@
+[gd_scene load_steps=7 format=3 uid="uid://efb0r0uxfv5c"]
+
+[ext_resource type="PackedScene" uid="uid://8kt0g5butbqw" path="res://text_box.tscn" id="1_slic6"]
+
+[sub_resource type="Animation" id="Animation_k7m3t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textBox/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["This is a text."]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("textBox/Label/PointTrigger:animation_name")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["text0"]
+}
+
+[sub_resource type="Animation" id="Animation_km6u1"]
+resource_name = "text go down"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textBox:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 659)]
+}
+
+[sub_resource type="Animation" id="Animation_slic6"]
+resource_name = "text0"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textBox/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["This is a text.", "Something Else"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("textBox/Label/PointTrigger:animation_name")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["text0", "text1"]
+}
+
+[sub_resource type="Animation" id="Animation_bok7j"]
+resource_name = "text1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textBox/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["Something Else", "BALLS"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("textBox/Label/PointTrigger:animation_name")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["text1", "text2"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bok7j"]
+_data = {
+&"RESET": SubResource("Animation_k7m3t"),
+&"text go down": SubResource("Animation_km6u1"),
+&"text0": SubResource("Animation_slic6"),
+&"text1": SubResource("Animation_bok7j")
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_bok7j")
+}
+
+[node name="textBox" parent="." instance=ExtResource("1_slic6")]
+
+[node name="Label" parent="textBox" index="0"]
+text = "This is a text."
+
+[node name="PointTrigger" parent="textBox/Label" index="0"]
+animation_player_path = NodePath("../../../AnimationPlayer")
+trigger_once = false
+animation_name = "text0"
+
+[editable path="textBox"]

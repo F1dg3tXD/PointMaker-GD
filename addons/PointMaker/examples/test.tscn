@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dubi4n7p70ucy"]
+[gd_scene load_steps=19 format=3 uid="uid://dubi4n7p70ucy"]
 
 [ext_resource type="Texture2D" uid="uid://cy4eg484bmaus" path="res://addons/PointMaker/icon.png" id="1_t5df4"]
 [ext_resource type="Script" uid="uid://dfnr5b22gpy7h" path="res://addons/PointMaker/scripts/point_trigger.gd" id="2_rkxvf"]
@@ -238,6 +238,18 @@ size = Vector2(352, 46)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_03s2i"]
 size = Vector2(352, 46)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jvn7n"]
+size = Vector2(352, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5g8xw"]
+size = Vector2(352, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0341t"]
+size = Vector2(352, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jvb6t"]
+size = Vector2(352, 46)
+
 [node name="Node2D2" type="Node2D"]
 
 [node name="Icon" type="Sprite2D" parent="."]
@@ -249,8 +261,8 @@ texture = ExtResource("1_t5df4")
 position = Vector2(-296, -300)
 script = ExtResource("2_rkxvf")
 animation_player_path = NodePath("../../AnimationPlayer")
-animation_name = "go-right"
 trigger_once = false
+animation_name = "go-right"
 metadata/_custom_type_script = "uid://dfnr5b22gpy7h"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Icon/PointTrigger-right"]
@@ -261,8 +273,8 @@ shape = SubResource("RectangleShape2D_mysju")
 position = Vector2(-296, -300)
 script = ExtResource("2_rkxvf")
 animation_player_path = NodePath("../../AnimationPlayer")
-animation_name = "go-left"
 trigger_once = false
+animation_name = "go-left"
 metadata/_custom_type_script = "uid://dfnr5b22gpy7h"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Icon/PointTrigger-left"]
@@ -287,6 +299,7 @@ text = "Next Scene"
 position = Vector2(-496, -576)
 script = ExtResource("2_rkxvf")
 scene_to_load = "res://addons/PointMaker/examples/test2.tscn"
+animation_name = ""
 metadata/_custom_type_script = "uid://dfnr5b22gpy7h"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Label/PointTrigger-Scene"]
@@ -296,6 +309,7 @@ shape = SubResource("RectangleShape2D_uehi2")
 [node name="PointHover" type="Area2D" parent="Label/PointTrigger-Scene"]
 script = ExtResource("3_rkxvf")
 stop_animation_on_exit = true
+trigger_once = false
 animation_player_path = NodePath("../../../AnimationPlayer")
 animation_name = "textColor"
 metadata/_custom_type_script = "uid://ddf7lqisije6p"
@@ -308,6 +322,22 @@ shape = SubResource("RectangleShape2D_rkxvf")
 position = Vector2(598, 598)
 shape = SubResource("RectangleShape2D_n4luu")
 
-[node name="@CollisionShape2D@21761" type="CollisionShape2D" parent="Label/PointTrigger-Scene/PointHover"]
+[node name="_CollisionShape2D_21761" type="CollisionShape2D" parent="Label/PointTrigger-Scene/PointHover"]
 position = Vector2(598, 598)
 shape = SubResource("RectangleShape2D_03s2i")
+
+[node name="_CollisionShape2D_21762" type="CollisionShape2D" parent="Label/PointTrigger-Scene/PointHover"]
+position = Vector2(598, 598)
+shape = SubResource("RectangleShape2D_jvn7n")
+
+[node name="_CollisionShape2D_21763" type="CollisionShape2D" parent="Label/PointTrigger-Scene/PointHover"]
+position = Vector2(598, 598)
+shape = SubResource("RectangleShape2D_5g8xw")
+
+[node name="_CollisionShape2D_21764" type="CollisionShape2D" parent="Label/PointTrigger-Scene/PointHover"]
+position = Vector2(598, 598)
+shape = SubResource("RectangleShape2D_0341t")
+
+[node name="@CollisionShape2D@21761" type="CollisionShape2D" parent="Label/PointTrigger-Scene/PointHover"]
+position = Vector2(598, 598)
+shape = SubResource("RectangleShape2D_jvb6t")

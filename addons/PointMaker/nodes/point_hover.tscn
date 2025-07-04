@@ -4,3 +4,4 @@
 
 [node name="PointHover" type="Area2D"]
 script = ExtResource("1_m124m")
+animation_name = ""
