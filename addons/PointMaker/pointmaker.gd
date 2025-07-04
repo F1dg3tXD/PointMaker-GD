@@ -49,6 +49,12 @@ func _enter_tree():
 		"Area2D",
 		preload("res://addons/PointMaker/scripts/point_snap.gd"),
 		preload("res://addons/PointMaker/icons/pointSnap.png"))
+		
+	add_custom_type(
+		"PointLoad",
+		"Node",
+		preload("res://addons/PointMaker/scripts/point_load.gd"),
+		preload("res://addons/PointMaker/icons/pointLoad.png"))
 
 func _exit_tree():
 	remove_custom_type("PointTrigger")
@@ -59,3 +65,4 @@ func _exit_tree():
 	remove_custom_type("PointHold")
 	remove_custom_type("PointDrag")
 	remove_custom_type("PointSnap")
+	remove_custom_type("PointLoad")

@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=3 uid="uid://bl1lyllfli0dw"]
+
+[ext_resource type="Script" uid="uid://lwyat6n047p8" path="res://addons/PointMaker/scripts/point_load.gd" id="1_hyeqr"]
+[ext_resource type="Script" uid="uid://dfnr5b22gpy7h" path="res://addons/PointMaker/scripts/point_trigger.gd" id="2_xgyeg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ejomr"]
+size = Vector2(1204, 679)
+
+[sub_resource type="Animation" id="Animation_xgyeg"]
+resource_name = "load"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLoad:scene_path")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["res://addons/PointMaker/examples/icon.tscn"]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLoad")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_ejomr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLoad:scene_path")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["res://addons/PointMaker/examples/icon.tscn"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hfjkd"]
+_data = {
+&"RESET": SubResource("Animation_ejomr"),
+&"load": SubResource("Animation_xgyeg")
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="PointLoad" type="Node" parent="."]
+script = ExtResource("1_hyeqr")
+scene_path = "res://addons/PointMaker/examples/icon.tscn"
+metadata/_custom_type_script = "uid://lwyat6n047p8"
+
+[node name="PointTrigger" type="Area2D" parent="."]
+script = ExtResource("2_xgyeg")
+animation_player_path = NodePath("../AnimationPlayer")
+animation_name = "load"
+metadata/_custom_type_script = "uid://dfnr5b22gpy7h"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PointTrigger"]
+position = Vector2(592, 329.5)
+shape = SubResource("RectangleShape2D_ejomr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_hfjkd")
+}

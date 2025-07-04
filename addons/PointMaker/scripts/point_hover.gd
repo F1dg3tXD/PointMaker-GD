@@ -1,4 +1,4 @@
-@tool
+@tool 
 extends Area2D
 class_name PointHover
 
@@ -8,11 +8,13 @@ signal hover_ended
 
 @export var use_own_collision: bool = false
 @export var stop_animation_on_exit: bool = false
+@export var trigger_once: bool = true
 @export var sounds: Array[AudioStream] = []
 @export var animation_player_path: NodePath
 @export var animation_name: String = ""
 
 var hovered := false
+var triggered := false
 
 func _ready():
 	input_pickable = true
@@ -38,7 +40,9 @@ func _on_mouse_entered():
 		return
 	hovered = true
 	emit_signal("hover_started")
-	_trigger_events()
+	if not trigger_once or not triggered:
+		_trigger_events()
+		triggered = true
 
 func _on_mouse_exited():
 	if hovered:
