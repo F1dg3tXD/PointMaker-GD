@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cy7h313k6kcw3"]
+
+[ext_resource type="PackedScene" uid="uid://d86c3ffgnfmf" path="res://addons/PointMaker/assets/top_loader.tscn" id="1_ymw7i"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="topLoader" parent="." instance=ExtResource("1_ymw7i")]
+position = Vector2(179, 159)

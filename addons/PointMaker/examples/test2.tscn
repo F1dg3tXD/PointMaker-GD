@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://b2jh5srpbtxlt"]
+[gd_scene load_steps=55 format=3 uid="uid://b2jh5srpbtxlt"]
 
 [ext_resource type="Script" uid="uid://dfnr5b22gpy7h" path="res://addons/PointMaker/scripts/point_trigger.gd" id="1_y5tfu"]
 [ext_resource type="Texture2D" uid="uid://cy4eg484bmaus" path="res://addons/PointMaker/icon.png" id="2_k25ba"]
@@ -49,6 +49,18 @@ size = Vector2(303, 46)
 size = Vector2(303, 46)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fwe8l"]
+size = Vector2(303, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sjb1r"]
+size = Vector2(303, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vy2op"]
+size = Vector2(303, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b18fh"]
+size = Vector2(303, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ix0bc"]
 size = Vector2(303, 46)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qou4l"]
@@ -510,9 +522,25 @@ shape = SubResource("RectangleShape2D_2ap4s")
 position = Vector2(622.5, 598)
 shape = SubResource("RectangleShape2D_icxby")
 
-[node name="@CollisionShape2D@21762" type="CollisionShape2D" parent="Label/PointTrigger-Scene/PointHover"]
+[node name="_CollisionShape2D_21769" type="CollisionShape2D" parent="Label/PointTrigger-Scene/PointHover"]
 position = Vector2(622.5, 598)
 shape = SubResource("RectangleShape2D_fwe8l")
+
+[node name="_CollisionShape2D_21770" type="CollisionShape2D" parent="Label/PointTrigger-Scene/PointHover"]
+position = Vector2(622.5, 598)
+shape = SubResource("RectangleShape2D_sjb1r")
+
+[node name="_CollisionShape2D_21771" type="CollisionShape2D" parent="Label/PointTrigger-Scene/PointHover"]
+position = Vector2(622.5, 598)
+shape = SubResource("RectangleShape2D_vy2op")
+
+[node name="_CollisionShape2D_21772" type="CollisionShape2D" parent="Label/PointTrigger-Scene/PointHover"]
+position = Vector2(622.5, 598)
+shape = SubResource("RectangleShape2D_b18fh")
+
+[node name="@CollisionShape2D@21762" type="CollisionShape2D" parent="Label/PointTrigger-Scene/PointHover"]
+position = Vector2(622.5, 598)
+shape = SubResource("RectangleShape2D_ix0bc")
 
 [node name="Icon" type="Node2D" parent="."]
 position = Vector2(380, -12)

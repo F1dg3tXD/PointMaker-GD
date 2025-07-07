@@ -3,4 +3,6 @@
 [ext_resource type="Script" uid="uid://cgenabg1yqygg" path="res://addons/PointMaker/scripts/point_controller_2d.gd" id="1_q8l6m"]
 
 [node name="pointController2D" type="CharacterBody2D"]
+position = Vector2(0, 59365)
+velocity = Vector2(0, 39066.7)
 script = ExtResource("1_q8l6m")

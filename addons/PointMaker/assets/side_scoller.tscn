@@ -1,0 +1,229 @@
+[gd_scene load_steps=38 format=3 uid="uid://cqre0p61r8pxm"]
+
+[ext_resource type="Texture2D" uid="uid://b1bji2tei7v52" path="res://addons/PointMaker/assets/Warrior/SpriteSheet/Warrior_SheetnoEffect.png" id="1_q4hcj"]
+[ext_resource type="Script" uid="uid://cgenabg1yqygg" path="res://addons/PointMaker/scripts/point_controller_2d.gd" id="1_vhx5d"]
+[ext_resource type="Texture2D" uid="uid://1vs8wsx12khi" path="res://addons/PointMaker/assets/Warrior/Individual Sprite/Attack/Warrior_Attack_1.png" id="2_tprwt"]
+[ext_resource type="Texture2D" uid="uid://bt1nukvmnckwp" path="res://addons/PointMaker/assets/Warrior/Individual Sprite/Run/Warrior_Run_1.png" id="2_vhx5d"]
+[ext_resource type="Texture2D" uid="uid://b1hsncf7kih34" path="res://addons/PointMaker/assets/Warrior/Individual Sprite/Crouch/Warrior_Crouch_2.png" id="3_118jo"]
+[ext_resource type="Texture2D" uid="uid://boysarismrbs1" path="res://addons/PointMaker/assets/Warrior/Individual Sprite/Run/Warrior_Run_2.png" id="3_gmun1"]
+[ext_resource type="Texture2D" uid="uid://bc8e0uf2mhfg3" path="res://addons/PointMaker/assets/Warrior/Individual Sprite/Attack/Warrior_Attack_2.png" id="3_kko37"]
+[ext_resource type="Texture2D" uid="uid://bauqif5vr1qis" path="res://addons/PointMaker/assets/Warrior/Individual Sprite/Crouch/Warrior_Crouch_3.png" id="4_5djeh"]
+[ext_resource type="Texture2D" uid="uid://bwqttvufrbk06" path="res://addons/PointMaker/assets/Warrior/Individual Sprite/Attack/Warrior_Attack_3.png" id="4_kn3ds"]
+[ext_resource type="Texture2D" uid="uid://cdgyjv3eolvdq" path="res://addons/PointMaker/assets/Warrior/Individual Sprite/Run/Warrior_Run_3.png" id="4_nfnh3"]
+[ext_resource type="Texture2D" uid="uid://dy64mxb2wmxyi" path="res://addons/PointMaker/assets/Warrior/Individual Sprite/Attack/Warrior_Attack_4.png" id="5_3ipdu"]
+[ext_resource type="Texture2D" uid="uid://ge1qi8wnmqlu" path="res://addons/PointMaker/assets/Warrior/Individual Sprite/Crouch/Warrior_Crouch_4.png" id="5_awign"]
+[ext_resource type="Texture2D" uid="uid://bacicryd62pqs" path="res://addons/PointMaker/assets/Warrior/Individual Sprite/Run/Warrior_Run_4.png" id="5_h1c6s"]
+[ext_resource type="Texture2D" uid="uid://biu7485wdrbrn" path="res://addons/PointMaker/assets/Warrior/Individual Sprite/Run/Warrior_Run_5.png" id="6_5qedp"]
+[ext_resource type="Texture2D" uid="uid://d4hydt2g5riy1" path="res://addons/PointMaker/assets/Warrior/Individual Sprite/Attack/Warrior_Attack_5.png" id="6_m504u"]
+[ext_resource type="Texture2D" uid="uid://c6wvqltkoltso" path="res://addons/PointMaker/assets/Warrior/Individual Sprite/Crouch/Warrior_Crouch_5.png" id="6_uy0dj"]
+[ext_resource type="Texture2D" uid="uid://iu08f0ant21o" path="res://addons/PointMaker/assets/Warrior/Individual Sprite/Attack/Warrior_Attack_6.png" id="7_d80lq"]
+[ext_resource type="Texture2D" uid="uid://bqkp2wc2851a5" path="res://addons/PointMaker/assets/Warrior/Individual Sprite/Run/Warrior_Run_6.png" id="7_dncf5"]
+[ext_resource type="Texture2D" uid="uid://0mxbsadwh7o3" path="res://addons/PointMaker/assets/Warrior/Individual Sprite/Run/Warrior_Run_7.png" id="8_nwlrn"]
+[ext_resource type="Texture2D" uid="uid://63q5en17fmw6" path="res://addons/PointMaker/assets/Warrior/Individual Sprite/Attack/Warrior_Attack_7.png" id="8_yxrym"]
+[ext_resource type="Texture2D" uid="uid://tkj6olk40h0f" path="res://addons/PointMaker/assets/Warrior/Individual Sprite/Attack/Warrior_Attack_8.png" id="9_5tyxl"]
+[ext_resource type="Texture2D" uid="uid://dqfjsux7yr4k1" path="res://addons/PointMaker/assets/Warrior/Individual Sprite/Run/Warrior_Run_8.png" id="9_u5pxj"]
+[ext_resource type="Texture2D" uid="uid://de14ub4n8lyng" path="res://addons/PointMaker/assets/Warrior/Individual Sprite/Jump/Warrior_Jump_1.png" id="9_yk3j8"]
+[ext_resource type="Texture2D" uid="uid://dxemayvuqvr6o" path="res://addons/PointMaker/assets/Warrior/Individual Sprite/Attack/Warrior_Attack_9.png" id="10_425hy"]
+[ext_resource type="Texture2D" uid="uid://jtxoso0mnxwp" path="res://addons/PointMaker/assets/Warrior/Individual Sprite/Jump/Warrior_Jump_2.png" id="10_nkrdp"]
+[ext_resource type="Texture2D" uid="uid://dbs3m8vu5oijl" path="res://addons/PointMaker/assets/Warrior/Individual Sprite/Attack/Warrior_Attack_10.png" id="11_p8iro"]
+[ext_resource type="Texture2D" uid="uid://yyflfesf4ccw" path="res://addons/PointMaker/assets/Warrior/Individual Sprite/Jump/Warrior_Jump_3.png" id="11_x8isp"]
+[ext_resource type="Texture2D" uid="uid://dsr2065uyk6pd" path="res://addons/PointMaker/assets/Warrior/Individual Sprite/Attack/Warrior_Attack_11.png" id="12_6b074"]
+[ext_resource type="Texture2D" uid="uid://bx4njet50s1rs" path="res://addons/PointMaker/assets/Warrior/Individual Sprite/Attack/Warrior_Attack_12.png" id="13_5rxhn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hkegv"]
+atlas = ExtResource("1_q4hcj")
+region = Rect2(0, 0, 69, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfyv5"]
+atlas = ExtResource("1_q4hcj")
+region = Rect2(69, 0, 69, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_118jo"]
+atlas = ExtResource("1_q4hcj")
+region = Rect2(138, 0, 69, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5djeh"]
+atlas = ExtResource("1_q4hcj")
+region = Rect2(207, 0, 69, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awign"]
+atlas = ExtResource("1_q4hcj")
+region = Rect2(276, 0, 69, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uy0dj"]
+atlas = ExtResource("1_q4hcj")
+region = Rect2(345, 0, 69, 44)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5twl3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tprwt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_kko37")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_kn3ds")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3ipdu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_m504u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_d80lq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_yxrym")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_5tyxl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_425hy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_p8iro")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_6b074")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_5rxhn")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.4,
+"texture": ExtResource("3_118jo")
+}, {
+"duration": 1.4,
+"texture": ExtResource("4_5djeh")
+}, {
+"duration": 1.4,
+"texture": ExtResource("5_awign")
+}, {
+"duration": 1.4,
+"texture": ExtResource("6_uy0dj")
+}],
+"loop": true,
+"name": &"crouch",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hkegv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfyv5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_118jo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5djeh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_awign")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uy0dj")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_yk3j8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_nkrdp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_x8isp")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vhx5d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gmun1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nfnh3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_h1c6s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5qedp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_dncf5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_nwlrn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_u5pxj")
+}],
+"loop": true,
+"name": &"sprint",
+"speed": 18.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vhx5d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gmun1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nfnh3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_h1c6s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5qedp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_dncf5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_nwlrn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_u5pxj")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gmun1"]
+size = Vector2(20, 35)
+
+[node name="side_scroller" type="CharacterBody2D"]
+script = ExtResource("1_vhx5d")
+animated_sprite_path = NodePath("AnimatedSprite2D")
+face_mouse = false
+metadata/_custom_type_script = "uid://cgenabg1yqygg"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5twl3")
+animation = &"attack"
+frame_progress = 0.137926
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-8, 4.5)
+shape = SubResource("RectangleShape2D_gmun1")

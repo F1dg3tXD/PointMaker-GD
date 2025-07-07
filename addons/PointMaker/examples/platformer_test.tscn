@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://bk8t8j4666uqy"]
+
+[ext_resource type="Texture2D" uid="uid://dst43newpkwvj" path="res://addons/PointMaker/assets/red arrow.png" id="1_t4lim"]
+[ext_resource type="PackedScene" uid="uid://cqre0p61r8pxm" path="res://addons/PointMaker/assets/side_scoller.tscn" id="2_h8x5s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h8x5s"]
+size = Vector2(1115.06, 280)
+
+[node name="platformer_test" type="Node2D"]
+
+[node name="env" type="Node2D" parent="."]
+
+[node name="RedArrow" type="Sprite2D" parent="env"]
+position = Vector2(945.25, 738)
+scale = Vector2(1.4914, 1)
+texture = ExtResource("1_t4lim")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="env/RedArrow"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="env/RedArrow/StaticBody2D"]
+position = Vector2(-81.2995, 4)
+shape = SubResource("RectangleShape2D_h8x5s")
+
+[node name="RedArrow2" type="Sprite2D" parent="env"]
+position = Vector2(-125, 103)
+rotation = -1.5708
+scale = Vector2(1.4914, 1)
+texture = ExtResource("1_t4lim")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="env/RedArrow2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="env/RedArrow2/StaticBody2D"]
+position = Vector2(-81.2995, 4)
+shape = SubResource("RectangleShape2D_h8x5s")
+
+[node name="RedArrow3" type="Sprite2D" parent="env"]
+position = Vector2(1270, 103)
+rotation = -1.5708
+scale = Vector2(1.4914, 1)
+texture = ExtResource("1_t4lim")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="env/RedArrow3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="env/RedArrow3/StaticBody2D"]
+position = Vector2(-81.2995, 4)
+shape = SubResource("RectangleShape2D_h8x5s")
+
+[node name="side_scroller" parent="." instance=ExtResource("2_h8x5s")]
+position = Vector2(159, 503)
+scale = Vector2(3, 3)
