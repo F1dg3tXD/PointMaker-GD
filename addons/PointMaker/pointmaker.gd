@@ -57,9 +57,15 @@ func _enter_tree():
 		preload("res://addons/PointMaker/icons/pointLoad.png"))
 		
 	add_custom_type(
-		"PointController2D",
+		"PointSideScroller2D",
 		"Node",
-		preload("res://addons/PointMaker/scripts/point_controller_2d.gd"),
+		preload("res://addons/PointMaker/scripts/side_scroller_controller.gd"),
+		preload("res://addons/PointMaker/icons/pointController2D.png"))
+	
+	add_custom_type(
+		"PointTopLoader2D",
+		"Node",
+		preload("res://addons/PointMaker/scripts/top_loader_controller.gd"),
 		preload("res://addons/PointMaker/icons/pointController2D.png"))
 
 func _exit_tree():
@@ -72,4 +78,5 @@ func _exit_tree():
 	remove_custom_type("PointDrag")
 	remove_custom_type("PointSnap")
 	remove_custom_type("PointLoad")
-	remove_custom_type("PointController2D")
+	remove_custom_type("PointSideScroller2D")
+	remove_custom_type("PointTopLoader2D")

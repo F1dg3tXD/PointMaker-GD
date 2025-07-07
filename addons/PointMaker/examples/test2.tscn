@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://b2jh5srpbtxlt"]
+[gd_scene load_steps=40 format=3 uid="uid://b2jh5srpbtxlt"]
 
 [ext_resource type="Script" uid="uid://dfnr5b22gpy7h" path="res://addons/PointMaker/scripts/point_trigger.gd" id="1_y5tfu"]
 [ext_resource type="Texture2D" uid="uid://cy4eg484bmaus" path="res://addons/PointMaker/icon.png" id="2_k25ba"]
@@ -16,51 +16,6 @@
 [ext_resource type="Script" uid="uid://b8u42wbmf07g0" path="res://addons/PointMaker/scripts/point_hold.gd" id="14_2k7cx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ji76j"]
-size = Vector2(303, 46)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d6c5p"]
-size = Vector2(303, 46)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2k7cx"]
-size = Vector2(303, 46)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ka6na"]
-size = Vector2(303, 46)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kd12g"]
-size = Vector2(303, 46)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1l21t"]
-size = Vector2(303, 46)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h6nx5"]
-size = Vector2(303, 46)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gn6wc"]
-size = Vector2(303, 46)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ax281"]
-size = Vector2(303, 46)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ap4s"]
-size = Vector2(303, 46)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_icxby"]
-size = Vector2(303, 46)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fwe8l"]
-size = Vector2(303, 46)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sjb1r"]
-size = Vector2(303, 46)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vy2op"]
-size = Vector2(303, 46)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b18fh"]
-size = Vector2(303, 46)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ix0bc"]
 size = Vector2(303, 46)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qou4l"]
@@ -481,66 +436,6 @@ trigger_once = false
 animation_player_path = NodePath("../../../AnimationPlayer")
 animation_name = "textColor"
 metadata/_custom_type_script = "uid://ddf7lqisije6p"
-
-[node name="@CollisionShape2D@21761" type="CollisionShape2D" parent="Label/PointTrigger-Scene/PointHover"]
-position = Vector2(622.5, 598)
-shape = SubResource("RectangleShape2D_d6c5p")
-
-[node name="@CollisionShape2D@21762" type="CollisionShape2D" parent="Label/PointTrigger-Scene/PointHover"]
-position = Vector2(622.5, 598)
-shape = SubResource("RectangleShape2D_2k7cx")
-
-[node name="_CollisionShape2D_21762" type="CollisionShape2D" parent="Label/PointTrigger-Scene/PointHover"]
-position = Vector2(622.5, 598)
-shape = SubResource("RectangleShape2D_ka6na")
-
-[node name="_CollisionShape2D_21763" type="CollisionShape2D" parent="Label/PointTrigger-Scene/PointHover"]
-position = Vector2(622.5, 598)
-shape = SubResource("RectangleShape2D_kd12g")
-
-[node name="@CollisionShape2D@31022" type="CollisionShape2D" parent="Label/PointTrigger-Scene/PointHover"]
-position = Vector2(622.5, 598)
-shape = SubResource("RectangleShape2D_1l21t")
-
-[node name="_CollisionShape2D_21764" type="CollisionShape2D" parent="Label/PointTrigger-Scene/PointHover"]
-position = Vector2(622.5, 598)
-shape = SubResource("RectangleShape2D_h6nx5")
-
-[node name="_CollisionShape2D_21765" type="CollisionShape2D" parent="Label/PointTrigger-Scene/PointHover"]
-position = Vector2(622.5, 598)
-shape = SubResource("RectangleShape2D_gn6wc")
-
-[node name="_CollisionShape2D_21766" type="CollisionShape2D" parent="Label/PointTrigger-Scene/PointHover"]
-position = Vector2(622.5, 598)
-shape = SubResource("RectangleShape2D_ax281")
-
-[node name="_CollisionShape2D_21767" type="CollisionShape2D" parent="Label/PointTrigger-Scene/PointHover"]
-position = Vector2(622.5, 598)
-shape = SubResource("RectangleShape2D_2ap4s")
-
-[node name="_CollisionShape2D_21768" type="CollisionShape2D" parent="Label/PointTrigger-Scene/PointHover"]
-position = Vector2(622.5, 598)
-shape = SubResource("RectangleShape2D_icxby")
-
-[node name="_CollisionShape2D_21769" type="CollisionShape2D" parent="Label/PointTrigger-Scene/PointHover"]
-position = Vector2(622.5, 598)
-shape = SubResource("RectangleShape2D_fwe8l")
-
-[node name="_CollisionShape2D_21770" type="CollisionShape2D" parent="Label/PointTrigger-Scene/PointHover"]
-position = Vector2(622.5, 598)
-shape = SubResource("RectangleShape2D_sjb1r")
-
-[node name="_CollisionShape2D_21771" type="CollisionShape2D" parent="Label/PointTrigger-Scene/PointHover"]
-position = Vector2(622.5, 598)
-shape = SubResource("RectangleShape2D_vy2op")
-
-[node name="_CollisionShape2D_21772" type="CollisionShape2D" parent="Label/PointTrigger-Scene/PointHover"]
-position = Vector2(622.5, 598)
-shape = SubResource("RectangleShape2D_b18fh")
-
-[node name="@CollisionShape2D@21762" type="CollisionShape2D" parent="Label/PointTrigger-Scene/PointHover"]
-position = Vector2(622.5, 598)
-shape = SubResource("RectangleShape2D_ix0bc")
 
 [node name="Icon" type="Node2D" parent="."]
 position = Vector2(380, -12)

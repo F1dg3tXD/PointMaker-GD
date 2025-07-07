@@ -1,7 +1,7 @@
 [gd_scene load_steps=38 format=3 uid="uid://cqre0p61r8pxm"]
 
 [ext_resource type="Texture2D" uid="uid://b1bji2tei7v52" path="res://addons/PointMaker/assets/Warrior/SpriteSheet/Warrior_SheetnoEffect.png" id="1_q4hcj"]
-[ext_resource type="Script" uid="uid://cgenabg1yqygg" path="res://addons/PointMaker/scripts/point_controller_2d.gd" id="1_vhx5d"]
+[ext_resource type="Script" uid="uid://c0npgcncjp3oo" path="res://addons/PointMaker/scripts/side_scroller_controller.gd" id="2_kko37"]
 [ext_resource type="Texture2D" uid="uid://1vs8wsx12khi" path="res://addons/PointMaker/assets/Warrior/Individual Sprite/Attack/Warrior_Attack_1.png" id="2_tprwt"]
 [ext_resource type="Texture2D" uid="uid://bt1nukvmnckwp" path="res://addons/PointMaker/assets/Warrior/Individual Sprite/Run/Warrior_Run_1.png" id="2_vhx5d"]
 [ext_resource type="Texture2D" uid="uid://b1hsncf7kih34" path="res://addons/PointMaker/assets/Warrior/Individual Sprite/Crouch/Warrior_Crouch_2.png" id="3_118jo"]
@@ -214,10 +214,9 @@ animations = [{
 size = Vector2(20, 35)
 
 [node name="side_scroller" type="CharacterBody2D"]
-script = ExtResource("1_vhx5d")
+script = ExtResource("2_kko37")
 animated_sprite_path = NodePath("AnimatedSprite2D")
-face_mouse = false
-metadata/_custom_type_script = "uid://cgenabg1yqygg"
+metadata/_custom_type_script = "uid://c0npgcncjp3oo"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5twl3")

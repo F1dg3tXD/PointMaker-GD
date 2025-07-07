@@ -658,7 +658,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"jump-down",
-"speed": 6.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -666,7 +666,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"jump-down-left",
-"speed": 6.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -674,7 +674,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"jump-down-right",
-"speed": 6.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -682,7 +682,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"jump-left",
-"speed": 6.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -690,7 +690,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"jump-right",
-"speed": 6.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -698,7 +698,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"jump-up",
-"speed": 6.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -706,7 +706,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"jump-up-left",
-"speed": 6.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -714,7 +714,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"jump-up-right",
-"speed": 6.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,

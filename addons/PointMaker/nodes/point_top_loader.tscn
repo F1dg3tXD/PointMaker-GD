@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://qk5x5s4s03dl"]
+
+[ext_resource type="Script" uid="uid://dp506pjovvj2w" path="res://addons/PointMaker/scripts/top_loader_controller.gd" id="1_4gdqw"]
+
+[node name="PointTopLoader" type="CharacterBody2D"]
+script = ExtResource("1_4gdqw")
