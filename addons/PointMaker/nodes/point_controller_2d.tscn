@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2oe24r3xar6h"]
+
+[ext_resource type="Script" uid="uid://cgenabg1yqygg" path="res://addons/PointMaker/scripts/point_controller_2d.gd" id="1_q8l6m"]
+
+[node name="pointController2D" type="CharacterBody2D"]
+script = ExtResource("1_q8l6m")
