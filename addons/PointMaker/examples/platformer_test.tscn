@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bk8t8j4666uqy"]
 
 [ext_resource type="Texture2D" uid="uid://dst43newpkwvj" path="res://addons/PointMaker/assets/red arrow.png" id="1_t4lim"]
-[ext_resource type="PackedScene" uid="uid://cqre0p61r8pxm" path="res://addons/PointMaker/assets/side_scoller.tscn" id="2_h8x5s"]
+[ext_resource type="PackedScene" uid="uid://cqre0p61r8pxm" path="res://addons/PointMaker/examples/side_scoller.tscn" id="2_h8x5s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h8x5s"]
 size = Vector2(1115.06, 280)
