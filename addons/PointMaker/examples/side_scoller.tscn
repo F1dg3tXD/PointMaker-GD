@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cqre0p61r8pxm"]
+[gd_scene format=3 uid="uid://cqre0p61r8pxm"]
 
 [ext_resource type="Texture2D" uid="uid://b1bji2tei7v52" path="res://addons/PointMaker/assets/Warrior/SpriteSheet/Warrior_SheetnoEffect.png" id="1_q4hcj"]
 [ext_resource type="Script" uid="uid://c0npgcncjp3oo" path="res://addons/PointMaker/scripts/side_scroller_controller.gd" id="2_kko37"]
@@ -93,7 +93,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("13_5rxhn")
 }],
-"loop": false,
+"loop": 0,
 "name": &"attack",
 "speed": 12.0
 }, {
@@ -110,7 +110,7 @@ animations = [{
 "duration": 1.4,
 "texture": ExtResource("6_uy0dj")
 }],
-"loop": true,
+"loop": 1,
 "name": &"crouch",
 "speed": 12.0
 }, {
@@ -133,7 +133,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_uy0dj")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 12.0
 }, {
@@ -147,7 +147,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("11_x8isp")
 }],
-"loop": true,
+"loop": 1,
 "name": &"jump",
 "speed": 12.0
 }, {
@@ -176,7 +176,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("9_u5pxj")
 }],
-"loop": true,
+"loop": 1,
 "name": &"sprint",
 "speed": 18.0
 }, {
@@ -205,7 +205,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("9_u5pxj")
 }],
-"loop": true,
+"loop": 1,
 "name": &"walk",
 "speed": 10.0
 }]
@@ -213,16 +213,15 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gmun1"]
 size = Vector2(20, 35)
 
-[node name="side_scroller" type="CharacterBody2D"]
+[node name="side_scroller" type="CharacterBody2D" unique_id=1380058490]
 script = ExtResource("2_kko37")
 animated_sprite_path = NodePath("AnimatedSprite2D")
 metadata/_custom_type_script = "uid://c0npgcncjp3oo"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=623026208]
 sprite_frames = SubResource("SpriteFrames_5twl3")
-animation = &"attack"
-frame_progress = 0.137926
+animation = &"crouch"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1052036382]
 position = Vector2(-8, 4.5)
 shape = SubResource("RectangleShape2D_gmun1")
