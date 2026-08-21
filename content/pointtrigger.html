@@ -1,31 +1,48 @@
 <hr>
-<h2 id="pointtrigger"><code>PointTrigger</code></h2>
+<h2 id="pointtrigger"><code>PointTrigger</code> / <code>PointTrigger3D</code></h2>
 <div class="node-details">
     <p><strong>Description:</strong><br>
-    Triggers sounds, animations, or scene changes when a body enters the area or when clicked with the mouse.</p>
+    A simple trigger that calls a method, plays an animation, plays sounds, and optionally loads a scene when a body enters the area or when clicked. Drag any node into the target field — a dropdown of its available methods appears automatically.</p>
+
+    <p><strong>Variants:</strong></p>
+    <ul>
+        <li><code>PointTrigger</code> — Extends <code>Area2D</code>. Add a <code>CollisionShape2D</code> or <code>CollisionPolygon2D</code> child.</li>
+        <li><code>PointTrigger3D</code> — Extends <code>Area3D</code>. Add a <code>CollisionShape3D</code> child.</li>
+    </ul>
 
     <p><strong>Properties:</strong></p>
     <ul>
-        <li><code>sounds:</code> <strong>Array[AudioStream]</strong> — List of sounds to play when triggered.</li>
-        <li><code>animation_player_path:</code> <strong>NodePath</strong> — Path to an <code>AnimationPlayer</code> node to play an animation.</li>
-        <li><code>animation_name:</code> <strong>String</strong> — Name of the animation to play.</li>
-        <li><code>scene_to_load:</code> <strong>String</strong> — Path to a <code>.tscn</code> scene to load when triggered.</li>
-        <li><code>trigger_once:</code> <strong>bool</strong> — If true, can only be triggered once.</li>
+        <li><code>target_node:</code> <strong>NodePath</strong> — Drag any node from the scene tree into this field.</li>
+        <li><code>target_method:</code> <strong>StringName</strong> — Method to call on the target node. Once <code>target_node</code> is set, the inspector shows a dropdown of all available public methods on that node.</li>
+        <li><code>animation_player_path:</code> <strong>NodePath</strong> — Path to an <code>AnimationPlayer</code> node.</li>
+        <li><code>animation_name:</code> <strong>String</strong> — Name of the animation to play. Once <code>animation_player_path</code> is set, the inspector shows a dropdown of all available animations.</li>
+        <li><code>sounds:</code> <strong>Array[AudioStream]</strong> — Audio streams to play simultaneously when triggered.</li>
+        <li><code>scene_to_load:</code> <strong>String</strong> — Path to a <code>.tscn</code> scene to load after triggering.</li>
+        <li><code>trigger_once:</code> <strong>bool</strong> — If true, the trigger can only fire once.</li>
     </ul>
 
     <p><strong>Signals:</strong></p>
     <ul>
-        <li><code>trigger_started</code> — Emitted when the trigger is activated (by body enter or mouse click).</li>
-        <li><code>sounds_played</code> — Emitted after all sounds have been played.</li>
-        <li><code>animation_played(name: String)</code> — Emitted after the animation is played.</li>
+        <li><code>trigger_started</code> — Emitted when the trigger activates.</li>
+        <li><code>sounds_played</code> — Emitted when sounds are played.</li>
+        <li><code>animation_played(name: String)</code> — Emitted when an animation is played.</li>
+        <li><code>method_called(method: StringName)</code> — Emitted after the target method is called.</li>
         <li><code>scene_changed(path: String)</code> — Emitted after the scene is changed.</li>
     </ul>
 
     <p><strong>Usage:</strong></p>
     <ul>
         <li>Add as a child of your scene.</li>
-        <li>Add a <code>CollisionShape2D</code> or <code>CollisionPolygon2D</code> as a child.</li>
-        <li>Configure properties in the Inspector.</li>
+        <li>Add a collision shape child (and offset it to overlap with the player).</li>
+        <li>Set <code>monitoring = true</code> on the Area node.</li>
+        <li>Drag a node into <code>target_node</code> — select a method from the dropdown.</li>
+        <li>Optionally set an <code>animation_player_path</code> and pick an animation.</li>
+        <li>Add sounds to play on trigger.</li>
         <li>Triggers on body enter or mouse click.</li>
     </ul>
+
+    <p><strong>Example — Turn on lights when player walks in:</strong></p>
+    <pre><code># Set target_node to your light node
+# Set target_method to "show" or "set_enabled"
+# Set animation_name to "light_on" if you have an AnimationPlayer</code></pre>
 </div>
