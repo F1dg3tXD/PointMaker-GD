@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b0gfdyuwxugl4"]
+
+[ext_resource type="Script" uid="uid://bb2a6x8xeewb1" path="res://addons/PointMaker/scripts/point_snap2D.gd" id="1_bbtrn"]
+
+[node name="pointSnap2D" type="Area2D" unique_id=1969225498]
+script = ExtResource("1_bbtrn")
+snap_in_animation = ""
+snap_out_animation = ""

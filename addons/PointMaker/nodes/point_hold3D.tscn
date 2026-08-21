@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://q2llu4dmleay"]
+
+[ext_resource type="Script" uid="uid://bpi71sye0eiop" path="res://addons/PointMaker/scripts/point_hold3D.gd" id="1_uy0dr"]
+
+[node name="PointHold3D" type="Area3D" unique_id=228161831]
+collision_layer = 2
+collision_mask = 4294967293
+script = ExtResource("1_uy0dr")

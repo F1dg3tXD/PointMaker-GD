@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bixoiqk3r3ajf"]
+
+[ext_resource type="Script" uid="uid://b8u42wbmf07g0" path="res://addons/PointMaker/scripts/point_hold2D.gd" id="1_kbwfa"]
+
+[node name="pointHold2D" type="Area2D" unique_id=228161831]
+script = ExtResource("1_kbwfa")
+animation_name = ""

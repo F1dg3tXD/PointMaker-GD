@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://o8n5kgscl7jm"]
+
+[ext_resource type="Script" uid="uid://bu6y2yoggefgd" path="res://addons/PointMaker/scripts/point_trigger3D.gd" id="1_4kcte"]
+
+[node name="PointTrigger3D" type="Area3D" unique_id=1702039183]
+script = ExtResource("1_4kcte")

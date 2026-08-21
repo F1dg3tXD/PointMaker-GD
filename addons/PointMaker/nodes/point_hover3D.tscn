@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://oj4agpfsxb63"]
+
+[ext_resource type="Script" uid="uid://dchv2kebllb47" path="res://addons/PointMaker/scripts/point_hover3D.gd" id="1_fkcjt"]
+
+[node name="PointHover3D" type="Area3D" unique_id=1634527658]
+collision_layer = 2
+collision_mask = 4294967293
+script = ExtResource("1_fkcjt")

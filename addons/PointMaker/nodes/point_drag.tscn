@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bc4tis83n8gdr"]
-
-[ext_resource type="Script" uid="uid://bbkgyol1fyypt" path="res://addons/PointMaker/scripts/point_drag.gd" id="1_g8ts7"]
-
-[node name="pointDrag" type="CharacterBody2D"]
-collision_layer = 2
-collision_mask = 4294967293
-script = ExtResource("1_g8ts7")

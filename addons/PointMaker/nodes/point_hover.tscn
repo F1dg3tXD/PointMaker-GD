@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bioxbfpi6akdc"]
-
-[ext_resource type="Script" uid="uid://ddf7lqisije6p" path="res://addons/PointMaker/scripts/point_hover.gd" id="1_m124m"]
-
-[node name="PointHover" type="Area2D"]
-script = ExtResource("1_m124m")
-animation_name = ""

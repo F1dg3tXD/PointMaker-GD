@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c4ef4i6sgd1c3"]
+
+[ext_resource type="Script" uid="uid://dfnr5b22gpy7h" path="res://addons/PointMaker/scripts/point_trigger2D.gd" id="1_up45p"]
+
+[node name="PointTrigger2D" type="Area2D" unique_id=1283462934]
+script = ExtResource("1_up45p")
+animation_name = ""

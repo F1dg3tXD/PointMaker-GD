@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bsgewf8iuvyo2"]
+
+[ext_resource type="Script" uid="uid://dm4jti3mg11hy" path="res://addons/PointMaker/scripts/point_radial2D.gd" id="1_cxbr6"]
+
+[node name="pointRadial2D" type="Area2D" unique_id=864836449]
+script = ExtResource("1_cxbr6")

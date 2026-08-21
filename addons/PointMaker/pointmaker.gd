@@ -3,80 +3,102 @@ extends EditorPlugin
 
 func _enter_tree():
 	add_custom_type(
-		"PointTrigger",
+		"PointTrigger2D",
 		"Area2D",
-		preload("res://addons/PointMaker/scripts/point_trigger.gd"),
-		preload("res://addons/PointMaker/icons/pointTrigger.png"))
+		preload("res://addons/PointMaker/scripts/point_trigger2D.gd"),
+		preload("res://addons/PointMaker/icons/pointTrigger2D.png"))
 	
 	add_custom_type(
-		"PointHover",
+		"PointHover2D",
 		"Area2D",
-		preload("res://addons/PointMaker/scripts/point_hover.gd"),
-		preload("res://addons/PointMaker/icons/pointHover.png"))
+		preload("res://addons/PointMaker/scripts/point_hover2D.gd"),
+		preload("res://addons/PointMaker/icons/pointHover2D.png"))
 
 	add_custom_type(
-		"PointRadial",
+		"PointRadial2D",
 		"Node2D",
-		preload("res://addons/PointMaker/scripts/point_radial.gd"),
-		preload("res://addons/PointMaker/icons/pointRadial.png"))
+		preload("res://addons/PointMaker/scripts/point_radial2D.gd"),
+		preload("res://addons/PointMaker/icons/pointRadial2D.png"))
 
 	add_custom_type(
-		"PointSliderH",
+		"PointSliderH2D",
 		"Node2D",
-		preload("res://addons/PointMaker/scripts/point_slider_h.gd"),
-		preload("res://addons/PointMaker/icons/pointSliderH.png"))
+		preload("res://addons/PointMaker/scripts/point_slider_h2D.gd"),
+		preload("res://addons/PointMaker/icons/pointSliderH2D.png"))
 
 	add_custom_type(
-		"PointSliderV",
+		"PointSliderV2D",
 		"Node2D",
-		preload("res://addons/PointMaker/scripts/point_slider_v.gd"),
-		preload("res://addons/PointMaker/icons/pointSliderV.png"))
+		preload("res://addons/PointMaker/scripts/point_slider_v2D.gd"),
+		preload("res://addons/PointMaker/icons/pointSliderV2D.png"))
 
 	add_custom_type(
-		"PointHold",
+		"PointHold2D",
 		"Area2D",
-		preload("res://addons/PointMaker/scripts/point_hold.gd"),
-		preload("res://addons/PointMaker/icons/pointHold.png"))
+		preload("res://addons/PointMaker/scripts/point_hold2D.gd"),
+		preload("res://addons/PointMaker/icons/pointHold2D.png"))
 
 	add_custom_type(
-		"PointDrag",
+		"PointDrag2D",
 		"Node2D",
-		preload("res://addons/PointMaker/scripts/point_drag.gd"),
-		preload("res://addons/PointMaker/icons/pointDrag.png"))
+		preload("res://addons/PointMaker/scripts/point_drag2D.gd"),
+		preload("res://addons/PointMaker/icons/pointDrag2D.png"))
 
 	add_custom_type(
-		"PointSnap",
+		"PointSnap2D",
 		"Area2D",
-		preload("res://addons/PointMaker/scripts/point_snap.gd"),
-		preload("res://addons/PointMaker/icons/pointSnap.png"))
+		preload("res://addons/PointMaker/scripts/point_snap2D.gd"),
+		preload("res://addons/PointMaker/icons/pointSnap2D.png"))
 		
 	add_custom_type(
 		"PointLoad",
 		"Node",
 		preload("res://addons/PointMaker/scripts/point_load.gd"),
-		preload("res://addons/PointMaker/icons/pointLoad.png"))
+		preload("res://addons/PointMaker/icons/pointLoad2D.PNG"))
 		
+
 	add_custom_type(
-		"PointSideScroller2D",
-		"Node",
-		preload("res://addons/PointMaker/scripts/side_scroller_controller.gd"),
-		preload("res://addons/PointMaker/icons/pointController2D.png"))
-	
+		"PointDrag3D",
+		"CharacterBody3D",
+		preload("res://addons/PointMaker/scripts/point_drag3D.gd"),
+		preload("res://addons/PointMaker/icons/pointDrag3D.PNG"))
+
 	add_custom_type(
-		"PointTopLoader2D",
-		"Node",
-		preload("res://addons/PointMaker/scripts/top_loader_controller.gd"),
-		preload("res://addons/PointMaker/icons/pointController2D.png"))
+		"PointHover3D",
+		"Area3D",
+		preload("res://addons/PointMaker/scripts/point_hover3D.gd"),
+		preload("res://addons/PointMaker/icons/pointHover3D.PNG"))
+
+	add_custom_type(
+		"PointSnap3D",
+		"Area3D",
+		preload("res://addons/PointMaker/scripts/point_snap3D.gd"),
+		preload("res://addons/PointMaker/icons/pointSnap3D.PNG"))
+
+	add_custom_type(
+		"PointHold3D",
+		"Area3D",
+		preload("res://addons/PointMaker/scripts/point_hold3D.gd"),
+		preload("res://addons/PointMaker/icons/pointHold3D.PNG"))
+
+	add_custom_type(
+		"PointTrigger3D",
+		"Area3D",
+		preload("res://addons/PointMaker/scripts/point_trigger3D.gd"),
+		preload("res://addons/PointMaker/icons/pointTrigger3D.PNG"))
 
 func _exit_tree():
-	remove_custom_type("PointTrigger")
-	remove_custom_type("PointHover")
-	remove_custom_type("PointRadial")
-	remove_custom_type("PointSliderH")
-	remove_custom_type("PointSliderV")
-	remove_custom_type("PointHold")
-	remove_custom_type("PointDrag")
-	remove_custom_type("PointSnap")
+	remove_custom_type("PointTrigger2D")
+	remove_custom_type("PointHover2D")
+	remove_custom_type("PointRadial2D")
+	remove_custom_type("PointSliderH2D")
+	remove_custom_type("PointSliderV2D")
+	remove_custom_type("PointHold2D")
+	remove_custom_type("PointDrag2D")
+	remove_custom_type("PointSnap2D")
 	remove_custom_type("PointLoad")
-	remove_custom_type("PointSideScroller2D")
-	remove_custom_type("PointTopLoader2D")
+	remove_custom_type("PointDrag3D")
+	remove_custom_type("PointHover3D")
+	remove_custom_type("PointSnap3D")
+	remove_custom_type("PointHold3D")
+	remove_custom_type("PointTrigger3D")

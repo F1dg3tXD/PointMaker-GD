@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dbw6uocl7oj3q"]
+
+[ext_resource type="Script" uid="uid://cmcairkocckkw" path="res://addons/PointMaker/scripts/point_slider_h2D.gd" id="1_hok2a"]
+
+[node name="pointSliderH2D" type="Area2D" unique_id=1858977281]
+script = ExtResource("1_hok2a")
