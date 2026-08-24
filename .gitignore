@@ -15,6 +15,9 @@ export_credentials.cfg
 data_*/
 mono_crash.*.json
 
+# macOS cruft
 .DS_Store
+._*
+__MACOSX/
 
 *.zip

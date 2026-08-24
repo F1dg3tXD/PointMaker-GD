@@ -1,0 +1,35 @@
+name: Package PointMaker
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  package:
+    name: Build addon archive
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Read version from plugin.cfg
+        id: version
+        run: |
+          VERSION=$(sed -n 's/^version=\(.*\)$/\1/p' addons/PointMaker/plugin.cfg | tr -d '"' | tr -d '\r')
+          if [ -z "$VERSION" ]; then
+            echo "Failed to read version from addons/PointMaker/plugin.cfg" >&2
+            exit 1
+          fi
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "Packaging PointMaker v$VERSION"
+
+      - name: Create archive
+        run: zip -r "PointMaker_v${{ steps.version.outputs.version }}.zip" addons
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: PointMaker_v${{ steps.version.outputs.version }}
+          path: PointMaker_v${{ steps.version.outputs.version }}.zip
+          if-no-files-found: error
