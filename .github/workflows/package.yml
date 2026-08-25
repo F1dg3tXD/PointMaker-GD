@@ -26,9 +26,14 @@ jobs:
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
           echo "Packaging PointMaker v$VERSION"
 
+      - name: Prepare addons directory
+        run: |
+          mkdir -p staging
+          cp -R addons staging/
+
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: PointMaker_v${{ steps.version.outputs.version }}
-          path: .
+          path: staging/
           if-no-files-found: error
