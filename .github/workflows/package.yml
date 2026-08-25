@@ -24,12 +24,9 @@ jobs:
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
           echo "Packaging PointMaker v$VERSION"
 
-      - name: Create archive
-        run: zip -r "PointMaker_v${{ steps.version.outputs.version }}.zip" addons
-
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: PointMaker_v${{ steps.version.outputs.version }}
-          path: PointMaker_v${{ steps.version.outputs.version }}.zip
+          path: addons/
           if-no-files-found: error
